@@ -751,7 +751,6 @@
     <nav>
         <div><a href="index.html">BrightLink</a></div>
         <ul>
-            <li><a href="index.html">Home</a></li>
             <li><a href="ardis.html">Software</a></li>
             <li><a href="training.html" style="color:#FF5833;font-weight:600;">Training</a></li>
             <li><a href="index.html#why-brightlink">Why BrightLink</a></li>
@@ -760,6 +759,10 @@
         <a href="index.html#contact">Start the Conversation</a>
     </nav>
 
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">← Back to BrightLink Public Sector</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -942,24 +945,26 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color:#04080B;color:#FFFFFF;padding:48px 40px 24px;text-align:center;">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;text-align:left;margin-bottom:32px;">
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">BrightLink Consulting</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Temecula, California<br/>U.S.-Based Operations</p>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Solutions</h4>
-                    <a href="ardis.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">ARDIS Software</a>
-                    <a href="training.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">AI Training Program</a>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Contact</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;">Mike Walker, Founder &amp; CEO<br/><a href="tel:+18583548511" style="color:#FF5833;text-decoration:none;">(858) 354-8511</a><br/><a href="mailto:Info@BrightLinkConsulting.com" style="color:#FF5833;text-decoration:none;">Info@BrightLinkConsulting.com</a></p>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BrightLink Consulting</h4>
+                <p>Temecula, California</p>
             </div>
-            <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">Copyright 2026 BrightLink Consulting LLC. All rights reserved.</div>
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <a href="ardis.html">ARDIS Software</a>
+                <a href="training.html">AI Training Program</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="index.html">Home</a>
+                <a href="index.html#why-brightlink">Why BrightLink</a>
+                <a href="index.html#past-performance">Results</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2026 BrightLink Consulting LLC. All rights reserved.</p>
         </div>
     </footer>
 </body>

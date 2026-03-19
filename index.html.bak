@@ -873,7 +873,6 @@
     <nav>
         <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">BrightLink</a></div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
             <li><a href="ardis.html">Software</a></li>
             <li><a href="training.html">Training</a></li>
             <li><a href="index.html#why-brightlink">Why BrightLink</a></li>
@@ -885,9 +884,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="eyebrow">Government & Public Sector Services</div>
-            <h1 class="section-heading">AI-Powered <span class="orange-accent">Data Intelligence</span> and <span class="orange-accent">Workforce Training</span> for Government Agencies</h1>
-            <p class="section-subhead">We deploy audit-ready data systems and hands-on AI implementation programs for government agencies and public institutions. One vendor. Full documentation. Built for how government actually procures.</p>
+            <div class="eyebrow">AI Solutions for Government & Public Sector</div>
+            <h1 class="section-heading">We help public sector organizations <span class="orange-accent">implement AI</span> that actually works. <span class="orange-accent">Data intelligence. Workforce training. Deployed.</span></h1>
+            <p class="section-subhead">BrightLink brings two AI-powered solutions to government agencies and public institutions: a data intelligence platform that makes your entire operation searchable and audit-ready, and a hands-on AI implementation program that gets your team building with AI in weeks, not months. One vendor. Full documentation. Designed for the way government actually procures.</p>
             <div class="hero-ctas">
                 <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
                 <a href="https://drive.google.com/file/d/1uVwy-ZYE_ne1tQ97eCf8svDFXFcMaIpM/view?usp=sharing" target="_blank" class="btn btn-outline">Download Capability Statement</a>
@@ -899,21 +898,10 @@
     <div class="credential-bar">
         <div class="container">
             <div class="credential-item">SAM.gov Registered</div>
-            <div class="credential-item">CAGE: [Pending]</div>
-            <div class="credential-item">UEI: [Check SAM.gov]</div>
+            <div class="credential-item">DUNS: 10-514-0288</div>
             <div class="credential-item">NAICS 541613</div>
+            <div class="credential-item">AI & Automation Specialists</div>
             <div class="credential-item">U.S.-Based Operations</div>
-        </div>
-    </div>
-
-    <!-- Trusted By -->
-    <div style="background-color:#FFFFFF;padding:24px 40px;text-align:center;border-bottom:1px solid rgba(4,8,11,0.1);">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(4,8,11,0.35);margin-bottom:12px;">Trusted By</div>
-            <div style="display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap;">
-                <div style="font-size:16px;font-weight:700;color:#04080B;letter-spacing:0.5px;">Inland Empire SBDC Network</div>
-                <div style="font-size:14px;color:rgba(4,8,11,0.5);">Serving Riverside &amp; San Bernardino Counties</div>
-            </div>
         </div>
     </div>
 
@@ -985,15 +973,15 @@
                     <li>
                         <div class="number">1</div>
                         <div class="text">
-                            <strong>Single-Vendor Accountability</strong>
-                            <span>One team owns the outcome from strategy through handoff. No blame-shifting. No "that's a different vendor's problem." Mike Walker leads every engagement personally.</span>
+                            <strong>Defensible by Design</strong>
+                            <span>Every deliverable produces documentation your procurement office can reference in audits or post-award reviews. No hand-waving. No proprietary black boxes.</span>
                         </div>
                     </li>
                     <li>
                         <div class="number">2</div>
                         <div class="text">
-                            <strong>Founder-Led Engagement</strong>
-                            <span>2x Amazon #1 Best Selling Author on systems thinking and client experience. 20+ years building mission-driven operations. You don't get a junior consultant. You get the person who built the firm.</span>
+                            <strong>Single-Vendor Accountability</strong>
+                            <span>One team owns the outcome from strategy through handoff. No blame-shifting. No "that's a different vendor's problem." Mike Walker leads every engagement personally.</span>
                         </div>
                     </li>
                     <li>
@@ -1001,6 +989,20 @@
                         <div class="text">
                             <strong>Proven Public Sector Delivery</strong>
                             <span>Established relationship with Inland Empire SBDC Network. Custom LMS deployed. Training programs live. References you can call who've worked with us on government contracts.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="number">4</div>
+                        <div class="text">
+                            <strong>Founder-Led Engagement</strong>
+                            <span>2x Amazon #1 Best Selling Author on systems thinking and client experience. 20+ years building mission-driven operations. You don't get a junior consultant. You get the person who built the firm.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="number">5</div>
+                        <div class="text">
+                            <strong>AI-Native Operations</strong>
+                            <span>Not retrofitting AI onto 1990s processes. Designing systems that are intelligent from the ground up—with audit trails, role-based governance, and compliance baked in.</span>
                         </div>
                     </li>
                 </ul>
@@ -1096,32 +1098,6 @@
         </div>
     </section>
 
-    <!-- Additional Capabilities -->
-    <section style="padding:60px 40px;background-color:#FFFFFF;">
-        <div class="container">
-            <div class="eyebrow" style="text-align:center;">Additional Capabilities</div>
-            <h2 class="section-heading" style="text-align:center;font-size:36px;">Beyond Our Core AI Solutions</h2>
-            <p style="text-align:center;max-width:700px;margin:0 auto 40px;font-size:16px;color:rgba(4,8,11,0.6);line-height:1.7;">In addition to ARDIS and The AI-Powered Enterprise, BrightLink delivers strategic consulting services across these competencies:</p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto;">
-                <div style="background-color:#FCF3EE;padding:32px;border-radius:12px;text-align:center;">
-                    <div style="font-size:28px;margin-bottom:12px;">&#128172;</div>
-                    <h4 style="font-weight:700;margin-bottom:8px;color:#04080B;font-size:16px;">Strategic Communications</h4>
-                    <p style="font-size:14px;color:rgba(4,8,11,0.6);line-height:1.6;">Stakeholder engagement, public-facing messaging, and internal communications strategy for agencies navigating change.</p>
-                </div>
-                <div style="background-color:#FCF3EE;padding:32px;border-radius:12px;text-align:center;">
-                    <div style="font-size:28px;margin-bottom:12px;">&#128200;</div>
-                    <h4 style="font-weight:700;margin-bottom:8px;color:#04080B;font-size:16px;">Marketing Strategy &amp; Campaigns</h4>
-                    <p style="font-size:14px;color:rgba(4,8,11,0.6);line-height:1.6;">Full-service campaign execution, CRM integration, and marketing automation for public sector outreach and community engagement.</p>
-                </div>
-                <div style="background-color:#FCF3EE;padding:32px;border-radius:12px;text-align:center;">
-                    <div style="font-size:28px;margin-bottom:12px;">&#9881;&#65039;</div>
-                    <h4 style="font-weight:700;margin-bottom:8px;color:#04080B;font-size:16px;">Operational Process Improvement</h4>
-                    <p style="font-size:14px;color:rgba(4,8,11,0.6);line-height:1.6;">Systems design, workflow optimization, and technology modernization consulting for agencies looking to reduce manual overhead.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- NAICS/NIGP Codes Section -->
     <section class="codes-section">
         <div class="container">
@@ -1196,24 +1172,17 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color:#04080B;color:#FFFFFF;padding:48px 40px 24px;text-align:center;">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;text-align:left;margin-bottom:32px;">
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">BrightLink Consulting</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Temecula, California<br/>U.S.-Based Operations</p>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Solutions</h4>
-                    <a href="ardis.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">ARDIS Software</a>
-                    <a href="training.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">AI Training Program</a>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Contact</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;">Mike Walker, Founder &amp; CEO<br/><a href="tel:+18583548511" style="color:#FF5833;text-decoration:none;">(858) 354-8511</a><br/><a href="mailto:Info@BrightLinkConsulting.com" style="color:#FF5833;text-decoration:none;">Info@BrightLinkConsulting.com</a></p>
-                </div>
-            </div>
-            <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">Copyright 2026 BrightLink Consulting LLC. All rights reserved.</div>
+    <footer>
+        <div class="footer-info">
+            <span><strong>Mike Walker</strong>, Founder & CEO</span>
+            <span><a href="tel:+18583548511">(858) 354-8511</a></span>
+            <span><a href="mailto:Info@BrightLinkConsulting.com">Info@BrightLinkConsulting.com</a></span>
+            <span>Temecula, California</span>
+            <span>U.S.-Based Operations</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            Copyright 2026 BrightLink Consulting LLC. All rights reserved.
         </div>
     </footer>
 </body>

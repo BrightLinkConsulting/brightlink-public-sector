@@ -76,7 +76,7 @@ nav .logo a {
 }
 .nav-links a {
   color: #04080B; text-decoration: none;
-  font-size: 16px; font-weight: 500;
+  font-size: 14px; font-weight: 500;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: #FF5833; }
@@ -847,7 +847,6 @@ footer {
 <nav>
     <div class="logo"><a href="index.html">BrightLink</a></div>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="ardis.html" class="active">Software</a></li>
         <li><a href="training.html">Training</a></li>
         <li><a href="index.html#why-brightlink">Why BrightLink</a></li>
@@ -856,6 +855,10 @@ footer {
     <a href="index.html#contact" class="nav-cta">Start the Conversation</a>
 </nav>
 
+<!-- ── BREADCRUMB ─────────────────────────────────────────────────── -->
+<div style="max-width:1200px;margin:0 auto;padding:12px 40px;">
+    <a href="index.html" style="font-size:13px;color:rgba(4,8,11,0.5);text-decoration:none;">← Back to BrightLink Public Sector</a>
+</div>
 
 <!-- ── HERO ───────────────────────────────────────────────────────── -->
 <section class="hero">
@@ -1713,26 +1716,63 @@ footer {
 </section>
 
 <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
-<footer style="background-color:#04080B;color:#FFFFFF;padding:48px 40px 24px;text-align:center;">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;text-align:left;margin-bottom:32px;">
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">BrightLink Consulting</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.6;">Temecula, California<br/>U.S.-Based Operations</p>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Solutions</h4>
-                    <a href="ardis.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">ARDIS Software</a>
-                    <a href="training.html" style="display:block;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:8px;">AI Training Program</a>
-                </div>
-                <div>
-                    <h4 style="font-weight:700;margin-bottom:12px;font-size:16px;">Contact</h4>
-                    <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;">Mike Walker, Founder &amp; CEO<br/><a href="tel:+18583548511" style="color:#FF5833;text-decoration:none;">(858) 354-8511</a><br/><a href="mailto:Info@BrightLinkConsulting.com" style="color:#FF5833;text-decoration:none;">Info@BrightLinkConsulting.com</a></p>
-                </div>
-            </div>
-            <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">Copyright 2026 BrightLink Consulting LLC. All rights reserved.</div>
-        </div>
-    </footer>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">ARDIS</div>
+        <div class="footer-brand-tagline">Audit Ready Data Intelligence System</div>
+        <div class="footer-brand-sub">A division of <a href="index.html" style="color:rgba(255,255,255,0.5);text-decoration:none;">BrightLink Consulting LLC</a></div>
+      </div>
+      <div>
+        <div class="footer-col-title">Platform</div>
+        <ul class="footer-links">
+          <li><a href="#what-it-does">What It Does</a></li>
+          <li><a href="#platform">Platform Features</a></li>
+          <li><a href="#who">Who It's For</a></li>
+          <li><a href="#request">Request a Demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item">Mike Walker, Founder &amp; CEO</div>
+        <div class="footer-contact-item">MikeWalker@BrightLinkConsulting.com</div>
+        <div class="footer-contact-item">(858) 354-8511</div>
+        <div class="footer-contact-item">Temecula, California</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <span>© 2026 BrightLink Consulting LLC. All rights reserved. ARDIS is a product of BrightLink Consulting LLC. DUNS: 10-514-0288</span>
+        <!-- SAM.gov footer badge -->
+        <a href="https://sam.gov" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;text-decoration:none;background:rgba(255,255,255,0.04);border:1px solid rgba(147,197,253,0.2);border-radius:8px;padding:7px 14px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(147,197,253,0.45)'" onmouseout="this.style.borderColor='rgba(147,197,253,0.2)'">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="12.5" stroke="#93C5FD" stroke-width="0.75" fill="#0f2147" opacity="0.9"/>
+            <circle cx="14" cy="14" r="10" stroke="#93C5FD" stroke-width="0.4" fill="none" opacity="0.3"/>
+            <circle cx="14" cy="4"  r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="19" cy="5.8" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="22.8" cy="10" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="23.5" cy="15.5" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="21" cy="21" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="16" cy="23.5" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="12" cy="23.5" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="7" cy="21" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="4.5" cy="15.5" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="5.2" cy="10" r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <circle cx="9" cy="5.8"  r="0.8" fill="#93C5FD" opacity="0.6"/>
+            <text x="14" y="13.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="800" fill="#FFFFFF" letter-spacing="0.3">SAM</text>
+            <text x="14" y="19" text-anchor="middle" font-family="Arial,sans-serif" font-size="3.8" font-weight="400" fill="#93C5FD" letter-spacing="0.8">.GOV</text>
+          </svg>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.2;">SAM.gov Registered</div>
+            <div style="font-size:9px;color:var(--blue-300);line-height:1.2;">Active Federal Vendor</div>
+          </div>
+          <div style="width:6px;height:6px;border-radius:50%;background:#34d399;margin-left:2px;"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- ── DEMO MODAL ──────────────────────────────────────────────────────── -->
 <div id="demoModal" style="
