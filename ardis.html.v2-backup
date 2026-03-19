@@ -839,18 +839,6 @@ footer {
 .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
 .stat-bar { animation: fadeUp 0.6s 0.4s ease both; }
 .hero-right { animation: fadeUp 0.8s 0.2s ease both; }
-
-/* ── V3: Scroll fade-up animations ── */
-.fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 </style>
 </head>
 <body>
@@ -1059,7 +1047,7 @@ footer {
     <div class="pillars-grid">
 
       <!-- PILLAR 1 -->
-      <div class="pillar-row fade-up">
+      <div class="pillar-row">
         <div class="pillar-content">
           <div class="pillar-number">01</div>
           <h3 class="pillar-title">Streamline Daily Operations</h3>
@@ -1222,7 +1210,7 @@ footer {
       </div>
 
       <!-- PILLAR 3 -->
-      <div class="pillar-row fade-up">
+      <div class="pillar-row">
         <div class="pillar-content">
           <div class="pillar-number">03</div>
           <h3 class="pillar-title">Generate Custom Reports</h3>
@@ -1435,42 +1423,42 @@ footer {
       <p class="section-sub" style="color:var(--blue-200);">Six integrated modules, one unified system. No training required for staff to get daily value from day one.</p>
     </div>
     <div class="features-grid">
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="8" height="8" rx="2" stroke-width="1.5"/><rect x="12" y="2" width="8" height="8" rx="2" stroke-width="1.5"/><rect x="2" y="12" width="8" height="8" rx="2" stroke-width="1.5"/><rect x="12" y="12" width="8" height="8" rx="2" stroke-width="1.5"/></svg>
         </div>
         <div class="feature-title">Intelligent Dashboard</div>
         <div class="feature-body">Real-time KPIs, SBA goal progress, activity feeds, and AI query access — one screen to manage everything across all departments.</div>
       </div>
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke-width="1.5"/><path d="M7 11l3 3 5-5" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="feature-title">AI Query Agent</div>
         <div class="feature-body">Ask questions in plain English and get immediate, sourced answers from your data. No filters, no exports, no waiting on an analyst.</div>
       </div>
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><path d="M4 2h14a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2z" stroke-width="1.5"/><path d="M7 8h8M7 12h5" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="feature-title">Report Wizard</div>
         <div class="feature-body">Step-by-step guided report generation. Select template, audience, and output format — generate a board-ready report in minutes.</div>
       </div>
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><path d="M4 4h14v3H4zM4 10h14v3H4zM4 16h10v3H4z" stroke-width="1.5"/></svg>
         </div>
         <div class="feature-title">Form Manager</div>
         <div class="feature-body">Build and deploy custom data collection forms. Submissions route through approval workflows and feed directly into the ARDIS data system.</div>
       </div>
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><path d="M11 3v9M7 8l4-4 4 4M3 18h16" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="feature-title">Smart Data Ingestion</div>
         <div class="feature-body">Upload files in virtually any format. ARDIS analyzes structure and confirms accuracy before storing — with an AI confidence gauge showing real-time intelligence.</div>
       </div>
-      <div class="feature-card fade-up">
+      <div class="feature-card">
         <div class="feature-icon">
           <svg viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke-width="1.5"/><path d="M3 20c0-4 3.6-7 8-7s8 3 8 7" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
@@ -1880,26 +1868,5 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeDemoModal();
 });
 </script>
-
-<!-- V3: Scroll fade-up animation -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
-    });
-    document.querySelectorAll('.fade-up').forEach(function(el) {
-        observer.observe(el);
-    });
-});
-</script>
-
 </body>
 </html>

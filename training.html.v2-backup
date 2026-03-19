@@ -744,18 +744,6 @@
                 page-break-inside: avoid;
             }
         }
-    
-        /* ── V3: Scroll fade-up animations ── */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
     </style>
 </head>
 <body>
@@ -974,25 +962,5 @@
             <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:13px;color:rgba(255,255,255,0.4);">Copyright 2026 BrightLink Consulting LLC. All rights reserved.</div>
         </div>
     </footer>
-
-    <!-- V3: Scroll fade-up animation -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
-        });
-        document.querySelectorAll('.fade-up').forEach(function(el) {
-            observer.observe(el);
-        });
-    });
-    </script>
 </body>
 </html>
