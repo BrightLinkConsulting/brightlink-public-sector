@@ -839,14 +839,47 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Dropdown Navigation */
+        .nav-dropdown { position: relative; }
+        .dropdown-trigger { cursor: pointer; }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            min-width: 220px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+        .nav-dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            color: #04080B;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .dropdown-item:hover { background: #FFF7ED; }
+        .dropdown-item.active { color: #FF5833; font-weight: 600; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">BrightLink</div>
+        <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">BrightLink</a></div>
         <ul class="nav-links">
-            <li><a href="#solutions">Solutions</a></li>
+            <li class="nav-dropdown">
+                <a href="#solutions" class="dropdown-trigger">Solutions ▾</a>
+                <div class="dropdown-menu">
+                    <a href="ardis.html" class="dropdown-item">ARDIS Software</a>
+                    <a href="training.html" class="dropdown-item">AI Training Program</a>
+                </div>
+            </li>
             <li><a href="#why-brightlink">Why BrightLink</a></li>
             <li><a href="#past-performance">Results</a></li>
         </ul>

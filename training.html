@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI-Powered Enterprise | BrightLink Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #04080B;
+            background: #FCF3EE;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav > div:first-child {
+            font-size: 20px;
+            font-weight: 700;
+            color: #04080B;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-trigger {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(4, 8, 11, 0.8);
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 220px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            display: block !important;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #04080B;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #FFF7ED;
+        }
+
+        .dropdown-menu a.active {
+            color: #FF5833;
+            font-weight: 600;
+        }
+
+        nav > a:last-child {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #FF5833;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        nav > a:last-child:hover {
+            background: #E84620;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 40px;
+        }
+
+        .breadcrumb a {
+            font-size: 13px;
+            color: rgba(4, 8, 11, 0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF5833;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #FCF3EE;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #FF5833;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #04080B;
+        }
+
+        .hero-subhead {
+            font-size: 18px;
+            color: rgba(4, 8, 11, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #FF5833;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #E84620;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 14px 32px;
+            background: transparent;
+            color: #FF5833;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid #FF5833;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: #FFF7ED;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF5833;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(4, 8, 11, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 40px;
+        }
+
+        .section-max {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: #FFFFFF;
+        }
+
+        .problem-intro {
+            font-size: 16px;
+            color: rgba(4, 8, 11, 0.7);
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: #F1F5F9;
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid #FF5833;
+        }
+
+        .problem-card h3 {
+            margin-bottom: 16px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: rgba(4, 8, 11, 0.7);
+            line-height: 1.7;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: #FFFFFF;
+        }
+
+        .how-it-works-intro {
+            font-size: 16px;
+            color: rgba(4, 8, 11, 0.7);
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        .weeks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .week-block {
+            padding: 40px;
+            background: #FFF7ED;
+            border-radius: 8px;
+        }
+
+        .week-header {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF5833;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .week-block h3 {
+            margin-bottom: 12px;
+            color: #04080B;
+        }
+
+        .week-block p {
+            font-size: 14px;
+            color: rgba(4, 8, 11, 0.7);
+            line-height: 1.7;
+        }
+
+        .bonus-block {
+            padding: 40px;
+            background: rgba(255, 88, 51, 0.1);
+            border-radius: 8px;
+            border: 1px solid #FFF7ED;
+        }
+
+        .bonus-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: #FF5833;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        /* Dual Facing Section */
+        .dual-facing {
+            background: #30302E;
+            color: #FFFFFF;
+        }
+
+        .dual-facing h2 {
+            color: #FFFFFF;
+            margin-bottom: 60px;
+        }
+
+        .deployment-models {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .deployment-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .deployment-card h3 {
+            color: #FFF7ED;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .deployment-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #FF5833;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .deployment-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        /* Program Delivery Section */
+        .program-delivery {
+            background: #FFFFFF;
+        }
+
+        .delivery-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 800px;
+        }
+
+        .delivery-item {
+            padding: 20px;
+            background: #F1F5F9;
+            border-radius: 6px;
+            border-left: 4px solid #FF5833;
+        }
+
+        .delivery-item p {
+            font-size: 14px;
+            color: rgba(4, 8, 11, 0.7);
+        }
+
+        .delivery-item strong {
+            color: #04080B;
+            font-weight: 600;
+        }
+
+        /* Who It's For Section */
+        .who-for {
+            background: #FFFFFF;
+        }
+
+        .who-for-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .who-card {
+            padding: 32px;
+            background: #F1F5F9;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .who-card:hover {
+            box-shadow: 0 12px 32px rgba(255, 88, 51, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .who-card h3 {
+            color: #FF5833;
+            font-size: 16px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .who-card p {
+            font-size: 14px;
+            color: rgba(4, 8, 11, 0.7);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: #FFF7ED;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta-subtext {
+            font-size: 16px;
+            color: rgba(4, 8, 11, 0.7);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(4, 8, 11, 0.1);
+        }
+
+        .contact-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #04080B;
+            margin-bottom: 8px;
+        }
+
+        .contact-details {
+            font-size: 14px;
+            color: rgba(4, 8, 11, 0.7);
+            line-height: 1.8;
+        }
+
+        .contact-details a {
+            color: #FF5833;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #FFFFFF;
+            padding: 60px 40px;
+            border-top: 1px solid rgba(4, 8, 11, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #04080B;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p {
+            font-size: 13px;
+            color: rgba(4, 8, 11, 0.6);
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            display: block;
+            font-size: 13px;
+            color: rgba(4, 8, 11, 0.6);
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #FF5833;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid rgba(4, 8, 11, 0.05);
+            text-align: center;
+            font-size: 13px;
+            color: rgba(4, 8, 11, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            nav ul {
+                gap: 16px;
+            }
+
+            nav > a:last-child {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 60px 24px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subhead {
+                font-size: 16px;
+            }
+
+            .stats-bar {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .problem-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .weeks-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .deployment-models {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+                padding: 16px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            nav > a:last-child {
+                order: 2;
+            }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero-subhead {
+                font-size: 14px;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                text-align: center;
+            }
+
+            .problem-card,
+            .week-block,
+            .bonus-block,
+            .delivery-item,
+            .who-card {
+                padding: 20px;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .breadcrumb a {
+                font-size: 12px;
+            }
+
+            .week-header,
+            .bonus-header,
+            .deployment-label,
+            .who-card h3 {
+                font-size: 11px;
+            }
+
+            .who-for-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav,
+            .breadcrumb {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div><a href="index.html">BrightLink</a></div>
+        <ul>
+            <li class="nav-dropdown">
+                <a href="index.html#solutions" class="dropdown-trigger">Solutions ▾</a>
+                <div class="dropdown-menu">
+                    <a href="ardis.html">ARDIS Software</a>
+                    <a href="training.html" class="active">AI Training Program</a>
+                </div>
+            </li>
+            <li><a href="index.html#why-brightlink">Why BrightLink</a></li>
+            <li><a href="index.html#past-performance">Results</a></li>
+        </ul>
+        <a href="index.html#contact">Start the Conversation</a>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">← Back to BrightLink Public Sector</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">AI Workforce Training</div>
+            <h1>Give Your Team the Skills to Build with AI. Give Your Community the Training to Compete.</h1>
+            <p class="hero-subhead">A guided AI implementation program designed for public sector organizations. Train internal staff to modernize operations, or deliver structured AI training to the businesses and workforce you serve. Every participant walks out with working systems, not just knowledge.</p>
+            <div class="hero-ctas">
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Request Program Details</button>
+                <a href="https://drive.google.com/file/d/1uVwy-ZYE_ne1tQ97eCf8svDFXFcMaIpM/view?usp=sharing" target="_blank" class="btn-outline">Download Capability Statement</a>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">4 Weeks</div>
+                    <div class="stat-label">Guided Implementation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">75-90</div>
+                    <div class="stat-label">Businesses per 3-Cohort Cycle</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Working Systems</div>
+                    <div class="stat-label">Not Just Theory</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="section-max">
+            <h2>AI Is Moving Fast. Most Organizations Are Watching.</h2>
+            <p class="problem-intro">Public sector organizations know AI matters. Leadership feels the pressure. Staff sees the opportunity. But the path from awareness to action stays unclear. Teams are overwhelmed by competing tools and frameworks. Existing training delivers slides, not systems. And agencies face pressure from both directions: modernize internally while serving communities that need new skills. You need outcomes that justify the investment, not another half-day workshop.</p>
+            <div class="problem-cards">
+                <div class="problem-card">
+                    <h3>No Clear Starting Point</h3>
+                    <p>Teams hear about AI daily but lack a structured path from awareness to implementation. Without a roadmap, early enthusiasm fades into paralysis.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Training Without Outcomes</h3>
+                    <p>Most AI workshops end with slides and ideas. Nothing gets built. Nothing changes Monday morning. You invest time and budget with no documented return.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Dual Mandate Pressure</h3>
+                    <p>Agencies need to modernize internally and deliver value to the communities and businesses they serve. That requires different tools and different support models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="section-max">
+            <h2>Four Weeks. Four Deliverables. Zero Theory-Only Sessions.</h2>
+            <p class="how-it-works-intro">Every week produces something concrete. Every session includes hands-on build time. By week four, participants have working systems in production and a roadmap for scaling. This isn't theory. This is implementation.</p>
+
+            <div class="weeks-grid">
+                <div class="week-block">
+                    <div class="week-header">Week 1</div>
+                    <h3>AI Readiness Audit</h3>
+                    <p>Every participant completes a structured assessment of their current operations, identifies the highest-ROI automation opportunities, and receives a dollar-figure projection for time and cost savings. This is the document leadership needs to justify the investment.</p>
+                </div>
+                <div class="week-block">
+                    <div class="week-header">Week 2</div>
+                    <h3>Build Two AI Assistants</h3>
+                    <p>Participants build and deploy two working AI company assistants: one for internal operations (SOPs, onboarding, knowledge management) and one for external use (customer support, intake, FAQs). Both are live by end of week.</p>
+                </div>
+                <div class="week-block">
+                    <div class="week-header">Week 3</div>
+                    <h3>Install a Live Automation</h3>
+                    <p>Each participant selects from five proven automation templates and installs at least one fully operational workflow. Options include lead intake, appointment scheduling, document generation, reporting, and client communication sequences.</p>
+                </div>
+                <div class="week-block">
+                    <div class="week-header">Week 4</div>
+                    <h3>ROI Report + Scaling Roadmap</h3>
+                    <p>The final week produces three deliverables: a measured ROI report comparing pre-program metrics to post-implementation results, team training documentation for ongoing management, and a six-month scaling roadmap with prioritized next steps.</p>
+                </div>
+            </div>
+
+            <div class="bonus-block">
+                <div class="bonus-header">Bonus: Week 5</div>
+                <h3>Advanced Multi-Step Automations</h3>
+                <p>Program completers get access to an advanced module covering chained multi-agent workflows, cross-platform integrations, and enterprise-grade automation architecture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Facing Design Section -->
+    <section class="dual-facing">
+        <div class="section-max">
+            <h2>One Program. Two Deployment Models.</h2>
+            <div class="deployment-models">
+                <div class="deployment-card">
+                    <div class="deployment-label">Internal</div>
+                    <h3>Train Your Own Team</h3>
+                    <p>For agencies that need to modernize internal operations. IT departments, administrative staff, program managers. Build AI systems that reduce manual workload and increase team capacity from the inside out.</p>
+                </div>
+                <div class="deployment-card">
+                    <div class="deployment-label">External</div>
+                    <h3>Train the People You Serve</h3>
+                    <p>For organizations like SBDCs, workforce development boards, and economic development agencies that deliver training to their communities. Offer a structured, outcomes-driven AI program to the businesses, entrepreneurs, and job seekers in your network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Delivery Section -->
+    <section class="program-delivery">
+        <div class="section-max">
+            <h2>How the Program Is Delivered</h2>
+            <div class="delivery-list">
+                <div class="delivery-item">
+                    <p><strong>Self-paced video modules</strong> - Content unlocks sequentially week by week</p>
+                </div>
+                <div class="delivery-item">
+                    <p><strong>Live weekly Zoom implementation calls</strong> - 90 minutes per session, 4 sessions per cohort</p>
+                </div>
+                <div class="delivery-item">
+                    <p><strong>Co-branded online learning community</strong> - Hosted and maintained by BrightLink, no tech burden on your team</p>
+                </div>
+                <div class="delivery-item">
+                    <p><strong>All recordings, transcriptions, and timestamps included</strong> - Catch up on any session, search across the program</p>
+                </div>
+                <div class="delivery-item">
+                    <p><strong>Templates, assessments, calculators, and policy frameworks included</strong> - Start from proven starting points, not from scratch</p>
+                </div>
+                <div class="delivery-item">
+                    <p><strong>Cohort analysis reports delivered to program leadership</strong> - See adoption rates, ROI, and emerging next-step opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="who-for">
+        <div class="section-max">
+            <h2>Built for Organizations That Need Measurable Outcomes</h2>
+            <div class="who-for-cards">
+                <div class="who-card">
+                    <h3>SBDC Networks</h3>
+                    <p>Deliver AI training to your small business clients with a structured curriculum that produces documented results for SBA reporting.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Workforce Development Boards</h3>
+                    <p>Equip job seekers and local businesses with practical AI skills that translate directly to employment readiness and operational capacity.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Community Colleges & Continuing Ed</h3>
+                    <p>Add a turnkey AI implementation course to your catalog. Co-branded, fully managed, with enrollment and reporting handled.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Government Agencies (Internal)</h3>
+                    <p>Train department staff to build and manage AI systems that reduce administrative burden and improve service delivery.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Economic Development Authorities</h3>
+                    <p>Offer a high-value AI training program to local businesses as part of your economic development and small business support mandate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="contact">
+        <div class="section-max">
+            <h2>Let's Talk About Bringing This to Your Organization</h2>
+            <p class="cta-subtext">Custom scoping for your agency's needs. Flexible deployment. Results-driven design. Let's explore what this looks like for your team.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">Request Program Details</button>
+                <a href="https://drive.google.com/file/d/1uVwy-ZYE_ne1tQ97eCf8svDFXFcMaIpM/view?usp=sharing" target="_blank" class="btn-outline">Download Capability Statement</a>
+            </div>
+            <div class="contact-info">
+                <div class="contact-name">Mike Walker</div>
+                <div class="contact-details">
+                    <a href="tel:+18583548511">(858) 354-8511</a><br>
+                    <a href="mailto:Info@BrightLinkConsulting.com">Info@BrightLinkConsulting.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>BrightLink Consulting</h4>
+                <p>Temecula, California</p>
+            </div>
+            <div class="footer-section">
+                <h4>Solutions</h4>
+                <a href="ardis.html">ARDIS Software</a>
+                <a href="training.html">AI Training Program</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="index.html">Home</a>
+                <a href="index.html#why-brightlink">Why BrightLink</a>
+                <a href="index.html#past-performance">Results</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2026 BrightLink Consulting LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
