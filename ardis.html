@@ -48,40 +48,48 @@ body {
 
 /* ─── NAV ──────────────────────────────────────────────────────── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  height: 64px;
-  display: flex; align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 nav .logo {
-  font-family: var(--font-display);
+  font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 700;
   color: #04080B;
-  margin-right: auto;
+}
+nav .logo a {
+  text-decoration: none;
+  color: inherit;
 }
 .nav-links {
-  display: flex; align-items: center; gap: 32px;
+  display: flex; align-items: center; gap: 40px;
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 .nav-links a {
-  color: rgba(4,8,11,0.8); text-decoration: none;
+  color: #04080B; text-decoration: none;
   font-size: 14px; font-weight: 500;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: #04080B; }
+.nav-links a:hover { color: #FF5833; }
+.nav-links a.active { color: #FF5833; font-weight: 600; }
 .nav-cta {
   background: #FF5833; color: #FFFFFF;
   border: none; border-radius: 6px;
-  padding: 10px 24px; font-size: 14px; font-weight: 600;
-  cursor: pointer; font-family: var(--font-body);
+  padding: 14px 32px; font-size: 16px; font-weight: 600;
+  cursor: pointer; font-family: 'Inter', sans-serif;
   text-decoration: none; display: inline-block;
-  transition: background 0.2s, transform 0.1s;
-  margin-left: 24px;
+  transition: background 0.2s;
 }
-.nav-cta:hover { background: #E64620; transform: translateY(-1px); }
+.nav-cta:hover { background: #E84620; }
 .nav-dropdown { position: relative; }
 .dropdown-trigger { cursor: pointer; }
 .dropdown-menu {
@@ -836,15 +844,15 @@ footer {
 <body>
 
 <!-- ── NAV ────────────────────────────────────────────────────────── -->
-<nav style="display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background-color:#FFFFFF;box-shadow:0 2px 8px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;">
-    <div style="font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:#04080B;"><a href="index.html" style="text-decoration:none;color:inherit;">BrightLink</a></div>
-    <ul style="display:flex;gap:40px;list-style:none;align-items:center;margin:0;padding:0;">
-        <li><a href="ardis.html" style="text-decoration:none;color:#FF5833;font-weight:600;font-size:14px;">Software</a></li>
-        <li><a href="training.html" style="text-decoration:none;color:#04080B;font-weight:500;font-size:14px;">Training</a></li>
-        <li><a href="index.html#why-brightlink" style="text-decoration:none;color:#04080B;font-weight:500;font-size:14px;">Why BrightLink</a></li>
-        <li><a href="index.html#past-performance" style="text-decoration:none;color:#04080B;font-weight:500;font-size:14px;">Results</a></li>
+<nav>
+    <div class="logo"><a href="index.html">BrightLink</a></div>
+    <ul class="nav-links">
+        <li><a href="ardis.html" class="active">Software</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="index.html#why-brightlink">Why BrightLink</a></li>
+        <li><a href="index.html#past-performance">Results</a></li>
     </ul>
-    <a href="index.html#contact" style="display:inline-block;padding:10px 24px;background:#FF5833;color:white;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">Start the Conversation</a>
+    <a href="index.html#contact" class="nav-cta">Start the Conversation</a>
 </nav>
 
 <!-- ── BREADCRUMB ─────────────────────────────────────────────────── -->
