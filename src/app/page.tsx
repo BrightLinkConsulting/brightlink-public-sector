@@ -317,39 +317,23 @@ export default function HomePage() {
               <Reveal>
                 <div className="relative">
                   <div className="absolute -inset-px rounded-sm bg-gradient-to-br from-[#FF5833]/20 to-[#1E3A5F]/20" />
-                  <div className="relative bg-[#0d1419] rounded-sm p-10 md:p-14 aspect-[4/5] flex flex-col justify-between border border-white/[0.06]">
-                    {/* Logo mark large */}
+                  <div className="relative rounded-sm overflow-hidden aspect-[4/5] border border-white/[0.06]">
                     <Image
-                      src="/images/brightlink-icon.png"
-                      alt="BrightLink"
-                      width={64}
-                      height={64}
-                      className="object-contain opacity-80"
+                      src="https://mikegwalker.com/assets/mike-boardroom-1280.webp"
+                      alt="Mike Walker"
+                      fill
+                      className="object-cover object-center"
                     />
-                    <div>
-                      <p className="font-display font-black text-5xl md:text-6xl text-white leading-tight mb-3">
-                        Mike<br />Walker
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/90 via-[#04080B]/20 to-transparent" />
+                    {/* Caption */}
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <p className="font-display font-black text-3xl text-white leading-tight mb-1">
+                        Mike Walker
                       </p>
-                      <p className="text-[#FF5833] text-sm font-semibold tracking-widest uppercase">
+                      <p className="text-[#FF5833] text-xs font-semibold tracking-widest uppercase">
                         Founder &amp; Principal
                       </p>
-                    </div>
-                    {/* Credential list */}
-                    <div className="flex flex-col gap-2.5">
-                      {[
-                        'Two-time Amazon bestselling author',
-                        'Investor, Operator, Author &amp; Speaker',
-                        'Founder: BrightLink Consulting &amp; ClientBloom.ai',
-                        'U.S.-based team, building since 1996',
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#FF5833] mt-1.5 shrink-0" />
-                          <p
-                            className="text-white/50 text-xs leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: item }}
-                          />
-                        </div>
-                      ))}
                     </div>
                   </div>
                 </div>
