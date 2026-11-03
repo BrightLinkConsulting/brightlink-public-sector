@@ -130,10 +130,10 @@ export default function PublicSectorPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
-                Most vendors build content. We build infrastructure.
+                We handle the full build — curriculum, platform, documentation, and handoff.
               </h2>
               <p className="text-gray-500 text-lg leading-relaxed">
-                There is a difference between a vendor who delivers slides and a team that designs, builds, and hands off a fully operational learning environment. We do the latter.
+                Every engagement is scoped to your requirements, your mandate, and your learners. You receive a fully operational learning environment — ready to run on day one.
               </p>
             </div>
 
@@ -141,18 +141,18 @@ export default function PublicSectorPage() {
               {[
                 {
                   icon: Shield,
-                  title: 'Procurement Complexity',
-                  body: 'Most vendors don\'t understand the compliance requirements that come with government contracts. SAM registration, accessibility mandates, documentation standards—we do.',
+                  title: 'Curriculum Designed for Your Program',
+                  body: 'We design from your requirements, your mandate, and your learner outcomes. Everything is built for your specific population — not repurposed from somewhere else.',
                 },
                 {
                   icon: FileText,
-                  title: 'Rigid, Outdated Curriculum',
-                  body: 'Off-the-shelf training doesn\'t account for your agency\'s specific mandates, populations, or outcomes. We design from your requirements, not from a template.',
+                  title: 'Platform Setup and Configuration',
+                  body: 'We set up the LMS or delivery platform, configure the experience, and make sure your team knows how to run it. The system is yours to operate from day one.',
                 },
                 {
                   icon: Zap,
-                  title: 'No Clear Starting Point',
-                  body: 'You need a qualified vendor who can move from contract to delivery without handholding. We\'ve done this before—we know exactly how to scope, build, and document.',
+                  title: 'Full Documentation and Handoff',
+                  body: 'Every deliverable is documented for compliance, accessibility review, and long-term usability. You receive a complete package — not just files.',
                 },
               ].map(({ icon: Icon, title, body }, i) => (
                 <div key={i} className="bg-white rounded-xl p-8 border border-gray-100">
