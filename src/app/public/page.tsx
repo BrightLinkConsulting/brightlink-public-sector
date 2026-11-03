@@ -90,13 +90,13 @@ export default function PublicSectorPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-24 md:pb-32">
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A5F] mb-4">
-                Public Sector & Government
+                Government · Cities · Enterprise
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                Built for Government. Designed to Deliver.
+                Online Training Built for Public Programs.
               </h1>
               <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-8 max-w-2xl">
-                BrightLink designs online training programs, operational systems, and procurement-ready curriculum for agencies, contractors, and mission-driven organizations.
+                BrightLink designs online training courses, learning management systems, and procurement-ready curriculum for government agencies, cities, enterprise organizations, and mission-driven programs. We turn your curriculum into online courses, set up the platform, and train your staff to run it.
               </p>
               {/* Credentials bar */}
               <div className="flex flex-wrap gap-3 mb-10">
@@ -130,10 +130,10 @@ export default function PublicSectorPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
-                Government training shouldn't feel like government bureaucracy.
+                Most vendors build content. We build infrastructure.
               </h2>
               <p className="text-gray-500 text-lg leading-relaxed">
-                Most training vendors don't understand the compliance layer. We built our entire practice around it.
+                There is a difference between a vendor who delivers slides and a team that designs, builds, and hands off a fully operational learning environment. We do the latter.
               </p>
             </div>
 
@@ -314,7 +314,7 @@ export default function PublicSectorPage() {
                 Who We Serve
               </h2>
               <p className="text-gray-500 text-lg max-w-xl">
-                We work across the full spectrum of government-adjacent organizations.
+                If you run programs, train people, or need a compliant, scalable learning environment — we work with you.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -322,8 +322,8 @@ export default function PublicSectorPage() {
                 { icon: Building, title: 'Federal Agencies', desc: 'GSA, SBA, HHS, DoD sub-contractors and federally-funded programs' },
                 { icon: Globe, title: 'State & Local Government', desc: 'Departments of Labor, Health, Education, Housing, and Social Services' },
                 { icon: Briefcase, title: 'SBDC & WBC Networks', desc: 'SBA-funded small business development centers and women\'s business centers' },
-                { icon: Shield, title: 'Defense & Gov Contractors', desc: 'Prime and sub-contractors navigating procurement and training requirements' },
-                { icon: Heart, title: 'Healthcare Systems', desc: 'Federally-funded community health programs and clinical training orgs' },
+                { icon: Shield, title: 'Cities & Municipalities', desc: 'City departments, county programs, and urban workforce and civic initiatives' },
+                { icon: Heart, title: 'Large Enterprise & Nonprofits', desc: 'Organizations that need a learning infrastructure at scale — from onboarding to certification' },
                 { icon: GraduationCap, title: 'Workforce Development', desc: 'Title I, WIOA-funded training programs and adult education providers' },
               ].map(({ icon: Icon, title, desc }, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 border border-gray-100">
