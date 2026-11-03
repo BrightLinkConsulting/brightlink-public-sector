@@ -29,6 +29,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Display font utility */
+.font-display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+/* Animated gradient text */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF5833 0%, #ff8c33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Credential marquee */
 .marquee-track {
   display: flex;
