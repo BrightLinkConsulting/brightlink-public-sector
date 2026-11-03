@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -10,9 +11,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="space-y-4">
-            <div className="font-display font-bold text-white text-xl tracking-tight">
-              <span className="text-[#FF5833]">B</span>BrightLink
-            </div>
+            <Link href="/" aria-label="BrightLink Consulting — Home">
+              <Image
+                src="/images/brightlink-logo-full.png"
+                alt="BrightLink Consulting"
+                width={180}
+                height={72}
+                className="object-contain"
+              />
+            </Link>
             <p className="text-sm leading-relaxed text-white/60 max-w-xs">
               We design online learning environments, government training programs, and digital ecosystems that work.
             </p>
@@ -31,7 +38,7 @@ export default function Footer() {
                 { href: '/', label: 'Home' },
                 { href: '/public', label: 'Public Sector' },
                 { href: '/private', label: 'Subject Matter Experts' },
-                { href: '/testimonials', label: 'Client Testimonials' },
+                { href: '/testimonials', label: 'Reviews' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
