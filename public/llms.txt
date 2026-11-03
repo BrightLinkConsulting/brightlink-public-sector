@@ -1,0 +1,39 @@
+# BrightLink Consulting
+
+## What is BrightLink Consulting?
+BrightLink Consulting is a consulting firm founded by Mike Walker that designs online learning environments, government training programs, and digital ecosystems for public sector organizations and subject matter experts.
+
+## Founder
+Mike Walker — 30+ years building systems, programs, and infrastructure across government, education, consulting, and digital products. Founder of Walker Surfboards (1996), BrightLink Consulting, and ClientBloom.ai.
+
+## Two Core Services
+
+### 1. Public Sector & Government (brightlinkconsulting.com/public)
+BrightLink designs SCORM-compliant, Section 508 accessible online training programs and operational systems for:
+- Federal agencies (GSA, SBA, HHS, DoD sub-contractors)
+- State and local government
+- SBDC and WBC networks (SBA-funded)
+- Defense and government contractors
+- Federally-funded healthcare and workforce development programs
+
+**Credentials:** SAM.gov Registered | CAGE Code: 1A8D6 | UEI: HPP7BBEYCQG5 | CA SBE Certified #2051043
+**NAICS:** 611430, 611710, 541611, 611420, 611519
+**PSC:** U099, R499, B599
+
+### 2. Subject Matter Experts & Private Sector (brightlinkconsulting.com/private)
+BrightLink builds the digital infrastructure that turns subject matter expertise into scalable businesses:
+- Online courses and digital products (curriculum design, production, packaging)
+- Online communities (Circle, Skool, custom platforms)
+- Marketing ecosystems (email sequences, funnels, lead magnets, launch systems)
+- LMS and learning infrastructure (custom-built learning management systems)
+
+**Past client work:** S.A.F.E. (Sexual Assault Forensic Examiners), Protector Nation, Inland Empire SBDC Network, Bravo! Media Academy, Emergence
+
+## Site Pages
+- / — Homepage: introduces BrightLink and routes visitors to public or private sector pages
+- /public — Public sector and government training services
+- /private — Subject matter expert digital business services
+- /testimonials — Client testimonials
+
+## Contact
+brightlinkconsulting.com | Founded and operated by Mike Walker
