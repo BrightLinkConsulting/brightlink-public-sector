@@ -1,233 +1,435 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import ContactModal from '@/components/ui/ContactModal'
 import CredentialMarquee from '@/components/ui/CredentialMarquee'
-import AnimatedCounter from '@/components/ui/AnimatedCounter'
-import { ArrowRight, Building2, GraduationCap, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 
-const orgSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'BrightLink Consulting',
-  url: 'https://brightlinkconsulting.com',
-  logo: 'https://brightlinkconsulting.com/logo.png',
-  description:
-    'BrightLink Consulting designs online learning environments, government training programs, and digital ecosystems for public sector organizations and subject matter experts.',
-  founder: {
-    '@type': 'Person',
-    name: 'Mike Walker',
-    url: 'https://mikegwalker.com',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'US',
-  },
-  sameAs: ['https://mikegwalker.com'],
+// ─── Animation variants ───────────────────────────────────────────────────────
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
 }
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+}
+
+// ─── Stat counter ─────────────────────────────────────────────────────────────
+function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!inView) return
+    const start = Date.now()
+    const duration = 1800
+    const tick = () => {
+      const elapsed = Date.now() - start
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(eased * target))
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [inView, target])
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  )
+}
+
+// ─── Section wrapper with scroll reveal ──────────────────────────────────────
+function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? 'visible' : 'hidden'}
+      variants={fadeUp}
+      custom={delay}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+// ─── Hero animated words ──────────────────────────────────────────────────────
+const heroWords = ['We', 'Build', 'What', 'Organizations', 'Actually', 'Need.']
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [modalSource, setModalSource] = useState('general')
+  const [modalSource, setModalSource] = useState<string | undefined>()
+  const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
-  const openModal = (source = 'general') => {
+  const openModal = (source?: string) => {
     setModalSource(source)
     setModalOpen(true)
   }
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-      />
-
       <Nav onOpenModal={openModal} />
 
       <main>
-        {/* ── HERO ─────────────────────────────────────────────────── */}
-        <section className="bg-[#04080B] text-white grain-overlay">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 md:pt-28 md:pb-36">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">
-                BrightLink Consulting
+        {/* ── HERO ──────────────────────────────────────────────────────── */}
+        <section
+          ref={heroRef}
+          className="relative min-h-screen bg-[#04080B] flex flex-col justify-center overflow-hidden"
+        >
+          {/* Grain overlay */}
+          <div className="absolute inset-0 grain-overlay pointer-events-none" />
+
+          {/* Gradient radial glow */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(255,88,51,0.07) 0%, transparent 70%)',
+            }}
+          />
+
+          {/* Fine grid lines - decorative */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-[0.03]"
+            style={{
+              backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+              backgroundSize: '80px 80px',
+            }}
+          />
+
+          <motion.div
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-32 pb-24"
+          >
+            {/* Eyebrow */}
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xs font-semibold tracking-[0.25em] uppercase text-[#FF5833] mb-10"
+            >
+              Online Learning &amp; Digital Infrastructure
+            </motion.p>
+
+            {/* Animated headline */}
+            <div className="overflow-hidden mb-10">
+              <motion.h1
+                className="font-display font-black text-[clamp(3rem,9vw,8.5rem)] leading-[0.9] tracking-tight text-white"
+                initial="hidden"
+                animate="visible"
+                variants={stagger}
+              >
+                {heroWords.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    variants={{
+                      hidden: { opacity: 0, y: '100%' },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.7, delay: 0.3 + i * 0.09, ease: [0.22, 1, 0.36, 1] },
+                      },
+                    }}
+                    className="inline-block mr-[0.2em] last:mr-0"
+                    style={{ color: word === 'Actually' ? '#FF5833' : undefined }}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h1>
+            </div>
+
+            {/* Sub + CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
+            >
+              <p className="text-white/55 text-lg leading-relaxed max-w-sm">
+                Government agencies and subject matter experts come to us when generic solutions stop working.
               </p>
-              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                We Build What Organizations Actually Need.
-              </h1>
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-                Whether you're navigating government procurement or building a business around your expertise, we design the systems, programs, and infrastructure that make it real.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 shrink-0">
                 <Link
                   href="/public"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#1E3A5F] text-white font-semibold rounded-md hover:bg-[#2a5080] transition-colors text-base min-h-[52px]"
+                  className="inline-flex items-center gap-2 px-7 py-4 bg-[#1E3A5F] text-white text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-[#2a5080] transition-colors duration-200 min-h-[52px] group"
                 >
-                  Public Sector & Government
-                  <ArrowRight size={18} />
+                  Public Sector
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
                 <Link
                   href="/private"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+                  className="inline-flex items-center gap-2 px-7 py-4 bg-[#FF5833] text-white text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-[#e84d2d] transition-colors duration-200 min-h-[52px] group"
                 >
                   Subject Matter Experts
-                  <ArrowRight size={18} />
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </div>
-            </div>
-          </div>
+            </motion.div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+              className="absolute bottom-10 left-5 sm:left-10 flex items-center gap-3"
+            >
+              <div className="w-px h-12 bg-white/20 relative overflow-hidden">
+                <motion.div
+                  className="w-full bg-[#FF5833]"
+                  initial={{ height: 0, top: 0 }}
+                  animate={{ height: '100%', top: 0 }}
+                  transition={{ delay: 1.8, duration: 1.2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 1 }}
+                  style={{ position: 'absolute' }}
+                />
+              </div>
+              <span className="text-[11px] tracking-[0.2em] uppercase text-white/30">Scroll</span>
+            </motion.div>
+          </motion.div>
         </section>
 
-        {/* ── CREDENTIAL MARQUEE ───────────────────────────────────── */}
-        <CredentialMarquee />
+        {/* ── CREDENTIAL MARQUEE ───────────────────────────────────────── */}
+        <div className="border-y border-white/[0.06] bg-[#04080B]">
+          <CredentialMarquee />
+        </div>
 
-        {/* ── STATS ────────────────────────────────────────────────── */}
-        <section className="bg-white py-16 md:py-20 border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-gray-200">
+        {/* ── STATS ────────────────────────────────────────────────────── */}
+        <section className="bg-[#04080B] py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            {/* Orange rule */}
+            <Reveal>
+              <div className="flex items-center gap-4 mb-16">
+                <div className="w-8 h-px bg-[#FF5833]" />
+                <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">By the numbers</span>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06]">
               {[
-                { value: 20, suffix: '+', label: 'Years in the Field' },
-                { value: 100, suffix: '+', label: 'Programs Designed' },
-                { value: 9, suffix: '', label: 'Client Testimonials' },
-                { value: 3, suffix: '', label: 'Active Verticals' },
-              ].map(({ value, suffix, label }, i) => (
-                <div key={i} className="text-center px-4 md:px-8">
-                  <p className="font-display font-bold text-4xl md:text-5xl text-[#04080B] mb-1">
-                    <AnimatedCounter target={value} suffix={suffix} />
+                { n: 20, suffix: '+', label: 'Years in the field' },
+                { n: 100, suffix: '+', label: 'Programs built' },
+                { n: 9, suffix: '', label: 'States served' },
+                { n: 3, suffix: '', label: 'Active platforms' },
+              ].map(({ n, suffix, label }, i) => (
+                <Reveal key={label} delay={i * 0.1} className="bg-[#04080B] p-10 md:p-12">
+                  <p className="font-display font-black text-[clamp(3.5rem,7vw,5.5rem)] leading-none text-white tabular-nums">
+                    <Counter target={n} suffix={suffix} />
                   </p>
-                  <p className="text-sm text-gray-500">{label}</p>
-                </div>
+                  <p className="text-white/40 text-sm mt-3 tracking-wide">{label}</p>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── FOUNDER BIO ──────────────────────────────────────────── */}
-        <section className="py-20 md:py-28 bg-[#F7F5F0]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-5">
-                  Founder
-                </p>
-                <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-6">
-                  Mike Walker
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-5">
-                  Mike Walker has spent 30 years building things that work—from Walker Surfboards in 1996 to systems, training programs, and digital ecosystems for organizations across the public and private sector.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-5">
-                  He built BrightLink Consulting around a simple belief: the right infrastructure changes everything. Whether it's a government training program or a subject matter expert's first online course, the architecture underneath determines the outcome.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Today, BrightLink serves government agencies, federally-funded programs, and subject matter experts who are ready to build something that lasts.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    'Systems Architecture',
-                    'Government Training',
-                    'Online Learning',
-                    'Digital Products',
-                  ].map((tag) => (
-                    <span key={tag} className="px-3 py-1.5 bg-white border border-gray-200 text-xs font-medium text-gray-600 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+        {/* ── TWO PATHS ────────────────────────────────────────────────── */}
+        <section className="bg-[#F7F5F0] py-24 md:py-32">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <Reveal className="mb-16">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px bg-[#FF5833]" />
+                <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">Two paths</span>
               </div>
-              <div className="space-y-4">
-                {[
-                  { icon: CheckCircle2, text: 'SAM.gov Registered · CAGE 1A8D6 · UEI HPP7BBEYCQG5' },
-                  { icon: CheckCircle2, text: 'CA SBE Certified Vendor #2051043' },
-                  { icon: CheckCircle2, text: 'Published Author on Systems Architecture' },
-                  { icon: CheckCircle2, text: '20+ years building mission-driven programs' },
-                  { icon: CheckCircle2, text: 'Past performance: SBDC, Bravo! Media, Emergence' },
-                ].map(({ icon: Icon, text }, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-white rounded-lg p-4 border border-gray-100">
-                    <Icon size={18} className="text-[#FF5833] mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── PATH SELECTOR ────────────────────────────────────────── */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14">
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
+              <h2 className="font-display font-black text-[clamp(2.2rem,5vw,4rem)] leading-[0.95] tracking-tight text-[#04080B]">
                 Where do you fit?
               </h2>
-              <p className="text-gray-500 text-lg max-w-xl mx-auto">
-                We work in two distinct worlds. Each has its own page because the problem—and the solution—is different.
-              </p>
-            </div>
+            </Reveal>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid md:grid-cols-2 gap-5">
               {/* Public sector card */}
-              <Link href="/public" className="group">
-                <div className="bg-[#04080B] text-white rounded-xl p-8 md:p-10 h-full flex flex-col hover:ring-2 hover:ring-[#1E3A5F] transition-all duration-200 hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-lg bg-[#1E3A5F] flex items-center justify-center mb-6">
-                    <Building2 size={22} className="text-white" />
+              <Reveal delay={0.05}>
+                <Link href="/public" className="group block bg-[#04080B] rounded-sm overflow-hidden relative min-h-[420px] flex flex-col hover:scale-[1.01] transition-transform duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#1E3A5F]" />
+                  <div className="p-10 md:p-12 flex flex-col flex-1">
+                    <span className="text-[11px] tracking-[0.25em] uppercase text-[#1E3A5F] font-semibold mb-6">
+                      Track 01
+                    </span>
+                    <h3 className="font-display font-black text-3xl md:text-4xl text-white leading-tight mb-5">
+                      Government &amp;<br />Public Sector
+                    </h3>
+                    <p className="text-white/50 text-sm leading-relaxed mb-auto">
+                      SAM-registered. SCORM-compliant. Section 508 accessible. We build training programs and operational systems for federal agencies, SBDC networks, and government contractors.
+                    </p>
+                    <div className="mt-10 flex items-center gap-3 text-[#1E3A5F] text-sm font-semibold tracking-wide uppercase group-hover:gap-5 transition-all duration-300">
+                      Explore Services
+                      <ArrowUpRight size={16} />
+                    </div>
                   </div>
-                  <div className="h-0.5 w-8 bg-[#1E3A5F] mb-6" />
-                  <h3 className="font-display font-bold text-2xl md:text-3xl mb-4 leading-tight">
-                    Public Sector & Government
-                  </h3>
-                  <p className="text-white/60 leading-relaxed mb-8 flex-1">
-                    Training programs, operational systems, and procurement-ready curriculum for agencies, contractors, and federally-funded programs. SAM.gov registered. CA SBE certified.
-                  </p>
-                  <div className="flex items-center gap-2 text-[#1E3A5F] group-hover:text-white transition-colors font-semibold">
-                    <span>Explore Public Sector</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute bottom-0 right-0 text-[160px] font-black text-white/[0.03] leading-none select-none pointer-events-none pr-6 pb-2">
+                    01
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
 
-              {/* Private sector card */}
-              <Link href="/private" className="group">
-                <div className="bg-[#F7F5F0] rounded-xl p-8 md:p-10 h-full flex flex-col hover:ring-2 hover:ring-[#FF5833] transition-all duration-200 hover:-translate-y-1 border border-gray-100">
-                  <div className="w-12 h-12 rounded-lg bg-[#FF5833] flex items-center justify-center mb-6">
-                    <GraduationCap size={22} className="text-white" />
+              {/* Private / SME card */}
+              <Reveal delay={0.1}>
+                <Link href="/private" className="group block bg-white border border-gray-200 rounded-sm overflow-hidden relative min-h-[420px] flex flex-col hover:scale-[1.01] transition-transform duration-300">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#FF5833]" />
+                  <div className="p-10 md:p-12 flex flex-col flex-1">
+                    <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833] font-semibold mb-6">
+                      Track 02
+                    </span>
+                    <h3 className="font-display font-black text-3xl md:text-4xl text-[#04080B] leading-tight mb-5">
+                      Subject Matter<br />Experts
+                    </h3>
+                    <p className="text-[#04080B]/50 text-sm leading-relaxed mb-auto">
+                      You have deep expertise. We build the digital infrastructure — courses, communities, funnels, and platforms — that turns what you know into a scalable business.
+                    </p>
+                    <div className="mt-10 flex items-center gap-3 text-[#FF5833] text-sm font-semibold tracking-wide uppercase group-hover:gap-5 transition-all duration-300">
+                      Explore Services
+                      <ArrowUpRight size={16} />
+                    </div>
                   </div>
-                  <div className="h-0.5 w-8 bg-[#FF5833] mb-6" />
-                  <h3 className="font-display font-bold text-2xl md:text-3xl text-[#04080B] mb-4 leading-tight">
-                    Subject Matter Experts
-                  </h3>
-                  <p className="text-gray-500 leading-relaxed mb-8 flex-1">
-                    Online courses, communities, marketing ecosystems, and LMS infrastructure for experts who are ready to monetize their intellectual property and build a scalable digital business.
-                  </p>
-                  <div className="flex items-center gap-2 text-[#FF5833] font-semibold">
-                    <span>Explore SME Services</span>
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <div className="absolute bottom-0 right-0 text-[160px] font-black text-[#04080B]/[0.03] leading-none select-none pointer-events-none pr-6 pb-2">
+                    02
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             </div>
           </div>
         </section>
 
-        {/* ── CLOSING CTA ──────────────────────────────────────────── */}
-        <section className="bg-[#04080B] text-white py-20 md:py-28 grain-overlay">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight mb-5">
-              Ready to build something that actually works?
-            </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-              We respond to every inquiry within one business day. Tell us what you're working on.
-            </p>
-            <button
-              onClick={() => openModal('general')}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-            >
-              Start a Conversation
-              <ArrowRight size={18} />
-            </button>
+        {/* ── FOUNDER ──────────────────────────────────────────────────── */}
+        <section className="bg-[#04080B] py-24 md:py-32 grain-overlay">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+            <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+              {/* Left: image placeholder with graphic treatment */}
+              <Reveal>
+                <div className="relative">
+                  <div className="absolute -inset-px rounded-sm bg-gradient-to-br from-[#FF5833]/20 to-[#1E3A5F]/20" />
+                  <div className="relative bg-[#0d1419] rounded-sm p-10 md:p-14 aspect-[4/5] flex flex-col justify-between border border-white/[0.06]">
+                    {/* Logo mark large */}
+                    <Image
+                      src="/images/brightlink-icon.png"
+                      alt="BrightLink"
+                      width={64}
+                      height={64}
+                      className="object-contain opacity-80"
+                    />
+                    <div>
+                      <p className="font-display font-black text-5xl md:text-6xl text-white leading-tight mb-3">
+                        Mike<br />Walker
+                      </p>
+                      <p className="text-[#FF5833] text-sm font-semibold tracking-widest uppercase">
+                        Founder &amp; Principal
+                      </p>
+                    </div>
+                    {/* Credential list */}
+                    <div className="flex flex-col gap-2.5">
+                      {[
+                        '30+ years building programs &amp; infrastructure',
+                        'Founder: BrightLink Consulting, ClientBloom.ai',
+                        'Walker Surfboards (est. 1996)',
+                        'Government, education, and digital products',
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#FF5833] mt-1.5 shrink-0" />
+                          <p
+                            className="text-white/50 text-xs leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: item }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Right: copy */}
+              <div>
+                <Reveal>
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-8 h-px bg-[#FF5833]" />
+                    <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">The founder</span>
+                  </div>
+                </Reveal>
+                <Reveal delay={0.05}>
+                  <h2 className="font-display font-black text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.95] tracking-tight text-white mb-8">
+                    Experience that actually means something.
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <p className="text-white/55 text-lg leading-relaxed mb-8">
+                    Three decades across government programs, education systems, and digital infrastructure. Not as a generalist — as someone who kept building the same kinds of things until he got really good at it.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.15}>
+                  <p className="text-white/55 text-base leading-relaxed mb-10">
+                    Mike Walker has worked inside the systems that most consultants only write decks about. That&apos;s the difference.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.2}>
+                  <div className="grid grid-cols-2 gap-4 mb-10">
+                    {[
+                      { label: 'SAM.gov Registered', detail: 'CAGE: 1A8D6' },
+                      { label: 'UEI', detail: 'HPP7BBEYCQG5' },
+                      { label: 'CA SBE Certified', detail: '#2051043' },
+                      { label: 'SCORM / 508', detail: 'Compliant delivery' },
+                    ].map(({ label, detail }) => (
+                      <div key={label} className="border border-white/[0.08] p-4 rounded-sm">
+                        <p className="text-white text-xs font-semibold tracking-wide mb-1">{label}</p>
+                        <p className="text-white/40 text-xs">{detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                </Reveal>
+                <Reveal delay={0.25}>
+                  <button
+                    onClick={() => openModal('general')}
+                    className="inline-flex items-center gap-3 text-[#FF5833] text-sm font-semibold tracking-wide uppercase border-b border-[#FF5833] pb-1 hover:gap-5 transition-all duration-200 group"
+                  >
+                    Talk to Mike
+                    <ArrowUpRight size={15} />
+                  </button>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CLOSING CTA ──────────────────────────────────────────────── */}
+        <section className="bg-[#FF5833] py-24 md:py-32 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.3) 39px, rgba(255,255,255,0.3) 40px)',
+            }}
+          />
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 relative">
+            <Reveal>
+              <h2 className="font-display font-black text-[clamp(2.5rem,7vw,6rem)] leading-[0.9] tracking-tight text-white mb-10 max-w-4xl">
+                Ready to build something that actually works?
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <button
+                onClick={() => openModal('general')}
+                className="inline-flex items-center gap-3 px-9 py-5 bg-[#04080B] text-white text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-black transition-colors duration-200 min-h-[56px] group"
+              >
+                Start the Conversation
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+            </Reveal>
           </div>
         </section>
       </main>
