@@ -43,7 +43,8 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 }
 
 // ─── Hero animated words ──────────────────────────────────────────────────────
-const heroWords = ['Curriculum', 'Into', 'Courses.', 'Platform', 'Into', 'Production.', 'Team', 'Into', 'Trainers.']
+const heroWords = ['Your', 'Message,', 'Your', 'IP,', 'Your', 'Mission.', 'Delivered', 'At', 'Scale.']
+const orangeWords = new Set(['Delivered', 'At', 'Scale.'])
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -122,7 +123,7 @@ export default function HomePage() {
                       },
                     }}
                     className="inline-block mr-[0.2em] last:mr-0"
-                    style={{ color: word === 'Production.' ? '#FF5833' : undefined }}
+                    style={{ color: orangeWords.has(word) ? '#FF5833' : undefined }}
                   >
                     {word}
                   </motion.span>
