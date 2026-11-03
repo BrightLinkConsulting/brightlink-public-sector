@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface NavProps {
@@ -11,10 +12,9 @@ interface NavProps {
 }
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/public', label: 'Public Sector' },
-  { href: '/private', label: 'Subject Matter Experts' },
-  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/private', label: 'For Experts' },
+  { href: '/testimonials', label: 'Clients' },
 ]
 
 export default function Nav({ onOpenModal }: NavProps) {
@@ -23,7 +23,7 @@ export default function Nav({ onOpenModal }: NavProps) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -32,7 +32,6 @@ export default function Nav({ onOpenModal }: NavProps) {
     setMenuOpen(false)
   }, [pathname])
 
-  // Determine nav accent based on page
   const isPublic = pathname === '/public'
   const isPrivate = pathname === '/private'
 
@@ -40,42 +39,49 @@ export default function Nav({ onOpenModal }: NavProps) {
     <>
       <nav
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled ? 'bg-[#04080B]/95 backdrop-blur-sm shadow-lg' : 'bg-[#04080B]'
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+          scrolled
+            ? 'bg-[#04080B]/95 backdrop-blur-md border-b border-white/[0.06]'
+            : 'bg-transparent'
         )}
         aria-label="Main navigation"
       >
         {/* Page accent strip */}
-        {isPublic && (
-          <div className="h-0.5 w-full bg-[#1E3A5F]" />
-        )}
-        {isPrivate && (
-          <div className="h-0.5 w-full bg-[#FF5833]" />
-        )}
+        {isPublic && <div className="h-px w-full bg-gradient-to-r from-transparent via-[#1E3A5F] to-transparent" />}
+        {isPrivate && <div className="h-px w-full bg-gradient-to-r from-transparent via-[#FF5833] to-transparent" />}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-18">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="flex items-center justify-between h-[68px]">
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 font-display font-bold text-white text-lg tracking-tight hover:opacity-90 transition-opacity"
+              className="flex items-center gap-3 hover:opacity-85 transition-opacity duration-200 group"
               aria-label="BrightLink Consulting — Home"
             >
-              <span className="text-[#FF5833]">B</span>
-              <span>BrightLink</span>
+              <Image
+                src="/images/brightlink-icon.png"
+                alt="BrightLink"
+                width={34}
+                height={34}
+                className="object-contain"
+                priority
+              />
+              <span className="font-display font-bold text-white text-[15px] tracking-wide uppercase hidden sm:block">
+                BrightLink <span className="text-white/40 font-normal">Consulting</span>
+              </span>
             </Link>
 
             {/* Desktop links */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-9">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    'text-sm font-medium transition-colors',
+                    'text-[13px] font-medium tracking-wider uppercase transition-colors duration-200',
                     pathname === link.href
                       ? 'text-white'
-                      : 'text-white/60 hover:text-white'
+                      : 'text-white/50 hover:text-white'
                   )}
                 >
                   {link.label}
@@ -84,12 +90,13 @@ export default function Nav({ onOpenModal }: NavProps) {
             </div>
 
             {/* Desktop CTA + mobile menu */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => onOpenModal('nav')}
-                className="hidden md:inline-flex items-center px-5 py-2.5 bg-[#FF5833] text-white text-sm font-semibold rounded-md hover:bg-[#e84d2d] transition-colors min-h-[44px]"
+                className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 border border-[#FF5833] text-[#FF5833] text-[13px] font-semibold tracking-wide uppercase rounded-sm hover:bg-[#FF5833] hover:text-white transition-all duration-200 min-h-[44px] group"
               >
-                Let's Talk
+                Start a Project
+                <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </button>
 
               <button
@@ -98,7 +105,7 @@ export default function Nav({ onOpenModal }: NavProps) {
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
               >
-                {menuOpen ? <X size={22} /> : <Menu size={22} />}
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
@@ -106,38 +113,32 @@ export default function Nav({ onOpenModal }: NavProps) {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-[#04080B] border-t border-white/10 px-4 pb-6 pt-4 animate-fade-in">
+          <div className="md:hidden bg-[#04080B] border-t border-white/[0.08] px-5 pb-8 pt-5">
             <div className="flex flex-col gap-1">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    'px-3 py-3 rounded-md text-base font-medium transition-colors min-h-[44px] flex items-center',
+                    'px-4 py-3.5 text-sm font-medium tracking-wider uppercase transition-colors duration-200 min-h-[44px] flex items-center border-b border-white/[0.05]',
                     pathname === link.href
-                      ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                      ? 'text-white'
+                      : 'text-white/50 hover:text-white'
                   )}
                 >
                   {link.label}
                 </Link>
               ))}
               <button
-                onClick={() => {
-                  setMenuOpen(false)
-                  onOpenModal('nav')
-                }}
-                className="mt-3 w-full px-5 py-3.5 bg-[#FF5833] text-white text-base font-semibold rounded-md hover:bg-[#e84d2d] transition-colors min-h-[44px]"
+                onClick={() => { setMenuOpen(false); onOpenModal('nav') }}
+                className="mt-5 w-full px-5 py-4 border border-[#FF5833] text-[#FF5833] text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-[#FF5833] hover:text-white transition-all duration-200 min-h-[44px]"
               >
-                Let's Talk
+                Start a Project
               </button>
             </div>
           </div>
         )}
       </nav>
-
-      {/* Spacer for fixed nav */}
-      <div className="h-16 md:h-18" />
     </>
   )
 }
