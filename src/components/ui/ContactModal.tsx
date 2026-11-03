@@ -70,10 +70,10 @@ export default function ContactModal({ isOpen, source, onClose }: ContactModalPr
 
   // Determine modal label based on source
   const isPublicSource = source === 'public'
-  const ctaLabel = isPublicSource ? 'Start a Conversation' : 'Let's Talk'
+  const ctaLabel = isPublicSource ? 'Start a Conversation' : "Let's Talk"
   const subLabel = isPublicSource
-    ? 'Government contracts, training programs, and procurement—let's talk about your project.'
-    : 'Whether you're building something new or scaling what you have, we'd love to hear about it.'
+    ? "Government contracts, training programs, and procurement—let's talk about your project."
+    : "Whether you're building something new or scaling what you have, we'd love to hear about it."
 
   if (!isOpen) return null
 
