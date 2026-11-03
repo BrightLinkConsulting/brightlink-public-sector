@@ -1,13 +1,12 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import ContactModal from '@/components/ui/ContactModal'
-import CredentialMarquee from '@/components/ui/CredentialMarquee'
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -23,34 +22,6 @@ const fadeUp = {
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
-}
-
-// ─── Stat counter ─────────────────────────────────────────────────────────────
-function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!inView) return
-    const start = Date.now()
-    const duration = 1800
-    const tick = () => {
-      const elapsed = Date.now() - start
-      const progress = Math.min(elapsed / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.round(eased * target))
-      if (progress < 1) requestAnimationFrame(tick)
-    }
-    requestAnimationFrame(tick)
-  }, [inView, target])
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  )
 }
 
 // ─── Section wrapper with scroll reveal ──────────────────────────────────────
@@ -206,40 +177,6 @@ export default function HomePage() {
               <span className="text-[11px] tracking-[0.2em] uppercase text-white/30">Scroll</span>
             </motion.div>
           </motion.div>
-        </section>
-
-        {/* ── CREDENTIAL MARQUEE ───────────────────────────────────────── */}
-        <div className="border-y border-white/[0.06] bg-[#04080B]">
-          <CredentialMarquee />
-        </div>
-
-        {/* ── STATS ────────────────────────────────────────────────────── */}
-        <section className="bg-[#04080B] py-24 md:py-32">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-            {/* Orange rule */}
-            <Reveal>
-              <div className="flex items-center gap-4 mb-16">
-                <div className="w-8 h-px bg-[#FF5833]" />
-                <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">By the numbers</span>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06]">
-              {[
-                { n: 300, suffix: '+', label: 'Clients served' },
-                { n: 1400, suffix: '+', label: 'Students certified' },
-                { n: 1000, suffix: '+', label: 'Placed into jobs' },
-                { n: 10, suffix: '+', label: 'Years operating' },
-              ].map(({ n, suffix, label }, i) => (
-                <Reveal key={label} delay={i * 0.1} className="bg-[#04080B] p-10 md:p-12">
-                  <p className="font-display font-black text-[clamp(3.5rem,7vw,5.5rem)] leading-none text-white tabular-nums">
-                    <Counter target={n} suffix={suffix} />
-                  </p>
-                  <p className="text-white/40 text-sm mt-3 tracking-wide">{label}</p>
-                </Reveal>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* ── TWO PATHS ────────────────────────────────────────────────── */}
