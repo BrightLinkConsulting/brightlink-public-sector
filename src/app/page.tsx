@@ -72,7 +72,7 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 }
 
 // ─── Hero animated words ──────────────────────────────────────────────────────
-const heroWords = ['We', 'Build', 'What', 'Organizations', 'Actually', 'Need.']
+const heroWords = ['Curriculum', 'Into', 'Courses.', 'Platform', 'Into', 'Production.', 'Team', 'Into', 'Trainers.']
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -151,7 +151,7 @@ export default function HomePage() {
                       },
                     }}
                     className="inline-block mr-[0.2em] last:mr-0"
-                    style={{ color: word === 'Actually' ? '#FF5833' : undefined }}
+                    style={{ color: word === 'Production.' ? '#FF5833' : undefined }}
                   >
                     {word}
                   </motion.span>
@@ -167,7 +167,7 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
             >
               <p className="text-white/55 text-lg leading-relaxed max-w-sm">
-                Government agencies and subject matter experts come to us when generic solutions stop working.
+                We build online training courses and learning management systems — then set up the platform, and train your team to run it. Design. Build. Hand Off.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 shrink-0">
                 <Link
@@ -226,10 +226,10 @@ export default function HomePage() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06]">
               {[
-                { n: 20, suffix: '+', label: 'Years in the field' },
-                { n: 100, suffix: '+', label: 'Programs built' },
-                { n: 9, suffix: '', label: 'States served' },
-                { n: 3, suffix: '', label: 'Active platforms' },
+                { n: 300, suffix: '+', label: 'Clients served' },
+                { n: 1400, suffix: '+', label: 'Students certified' },
+                { n: 1000, suffix: '+', label: 'Placed into jobs' },
+                { n: 10, suffix: '+', label: 'Years operating' },
               ].map(({ n, suffix, label }, i) => (
                 <Reveal key={label} delay={i * 0.1} className="bg-[#04080B] p-10 md:p-12">
                   <p className="font-display font-black text-[clamp(3.5rem,7vw,5.5rem)] leading-none text-white tabular-nums">
@@ -337,10 +337,10 @@ export default function HomePage() {
                     {/* Credential list */}
                     <div className="flex flex-col gap-2.5">
                       {[
-                        '30+ years building programs &amp; infrastructure',
-                        'Founder: BrightLink Consulting, ClientBloom.ai',
-                        'Walker Surfboards (est. 1996)',
-                        'Government, education, and digital products',
+                        'Two-time Amazon bestselling author',
+                        'Investor, Operator, Author &amp; Speaker',
+                        'Founder: BrightLink Consulting &amp; ClientBloom.ai',
+                        'U.S.-based team, building since 1996',
                       ].map((item, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#FF5833] mt-1.5 shrink-0" />
@@ -360,31 +360,31 @@ export default function HomePage() {
                 <Reveal>
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-8 h-px bg-[#FF5833]" />
-                    <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">The founder</span>
+                    <span className="text-[11px] tracking-[0.25em] uppercase text-[#FF5833]">About BrightLink</span>
                   </div>
                 </Reveal>
                 <Reveal delay={0.05}>
                   <h2 className="font-display font-black text-[clamp(2rem,4.5vw,3.5rem)] leading-[0.95] tracking-tight text-white mb-8">
-                    Experience that actually means something.
+                    Built by people who have done this work.
                   </h2>
                 </Reveal>
                 <Reveal delay={0.1}>
                   <p className="text-white/55 text-lg leading-relaxed mb-8">
-                    Three decades across government programs, education systems, and digital infrastructure. Not as a generalist — as someone who kept building the same kinds of things until he got really good at it.
+                    BrightLink was founded in 2015 by Mike Walker — investor, operator, author, and speaker — with a simple belief: organizations deserve a partner who can design, build, and hand off a fully operational learning environment. Not just set up a platform and disappear.
                   </p>
                 </Reveal>
                 <Reveal delay={0.15}>
                   <p className="text-white/55 text-base leading-relaxed mb-10">
-                    Mike Walker has worked inside the systems that most consultants only write decks about. That&apos;s the difference.
+                    Mike is a two-time Amazon bestselling author with books on systems thinking, business operations, and customer experience. The U.S.-based BrightLink team has served 300+ clients, certified 1,400+ students, and placed 1,000+ into jobs. That&apos;s the difference.
                   </p>
                 </Reveal>
                 <Reveal delay={0.2}>
                   <div className="grid grid-cols-2 gap-4 mb-10">
                     {[
-                      { label: 'SAM.gov Registered', detail: 'CAGE: 1A8D6' },
-                      { label: 'UEI', detail: 'HPP7BBEYCQG5' },
+                      { label: 'Founded', detail: '2015' },
+                      { label: 'U.S.-Based Team', detail: 'SAM.gov Registered' },
+                      { label: 'Amazon Bestselling', detail: 'Author × 2' },
                       { label: 'CA SBE Certified', detail: '#2051043' },
-                      { label: 'SCORM / 508', detail: 'Compliant delivery' },
                     ].map(({ label, detail }) => (
                       <div key={label} className="border border-white/[0.08] p-4 rounded-sm">
                         <p className="text-white text-xs font-semibold tracking-wide mb-1">{label}</p>
@@ -398,7 +398,7 @@ export default function HomePage() {
                     onClick={() => openModal('general')}
                     className="inline-flex items-center gap-3 text-[#FF5833] text-sm font-semibold tracking-wide uppercase border-b border-[#FF5833] pb-1 hover:gap-5 transition-all duration-200 group"
                   >
-                    Talk to Mike
+                    Work With Us
                     <ArrowUpRight size={15} />
                   </button>
                 </Reveal>
