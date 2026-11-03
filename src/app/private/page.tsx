@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import ContactModal from '@/components/ui/ContactModal'
@@ -441,28 +442,24 @@ export default function PrivateSectorPage() {
                   ))}
                 </div>
               </div>
-              <div className="bg-[#0d1419] rounded-sm p-10 border border-white/[0.06]">
-                <p className="font-display font-black text-5xl text-white leading-tight mb-3">Mike<br />Walker</p>
-                <p className="text-[#FF5833] text-sm font-semibold tracking-widest uppercase mb-8">Founder &amp; Principal</p>
-                <div className="flex flex-col gap-3">
-                  {[
-                    'Two-time Amazon bestselling author',
-                    'Investor, Operator, Author &amp; Speaker',
-                    'Building since 1996',
-                    '300+ clients · 1,400+ students certified',
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF5833] mt-1.5 shrink-0" />
-                      <p className="text-white/50 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
-                    </div>
-                  ))}
+              <div className="relative rounded-sm overflow-hidden aspect-[4/5] border border-white/[0.06]">
+                <Image
+                  src="https://mikegwalker.com/assets/mike-stage-1280.webp"
+                  alt="Mike Walker speaking on stage"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/95 via-[#04080B]/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <p className="font-display font-black text-3xl text-white leading-tight mb-1">Mike Walker</p>
+                  <p className="text-[#FF5833] text-xs font-semibold tracking-widest uppercase mb-5">Founder &amp; Principal</p>
+                  <blockquote>
+                    <p className="text-white/60 text-sm italic leading-relaxed">
+                      &ldquo;Mike Walker is a straight-up genius when it comes to business.&rdquo;
+                    </p>
+                    <p className="text-white/35 text-xs mt-2">— Marley Jaxx, CEO · Jaxx Productions</p>
+                  </blockquote>
                 </div>
-                <blockquote className="mt-8 pt-8 border-t border-white/[0.08]">
-                  <p className="text-white/40 text-sm italic leading-relaxed">
-                    &ldquo;Mike Walker is a straight-up genius when it comes to business.&rdquo;
-                  </p>
-                  <p className="text-white/25 text-xs mt-2">— Marley Jaxx</p>
-                </blockquote>
               </div>
             </div>
           </div>
