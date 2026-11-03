@@ -14,7 +14,7 @@ interface NavProps {
 const links = [
   { href: '/public', label: 'Public Sector' },
   { href: '/private', label: 'For Experts' },
-  { href: '/testimonials', label: 'Clients' },
+  { href: '/testimonials', label: 'Reviews' },
 ]
 
 export default function Nav({ onOpenModal }: NavProps) {
