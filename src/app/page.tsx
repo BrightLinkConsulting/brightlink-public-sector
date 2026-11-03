@@ -76,14 +76,14 @@ const heroWords = ['We', 'Build', 'What', 'Organizations', 'Actually', 'Need.']
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [modalSource, setModalSource] = useState<string | undefined>()
+  const [modalSource, setModalSource] = useState<string>('general')
   const heroRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
   const openModal = (source?: string) => {
-    setModalSource(source)
+    setModalSource(source ?? 'general')
     setModalOpen(true)
   }
 
