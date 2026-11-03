@@ -90,10 +90,10 @@ export default function PrivateSectorPage() {
                 Subject Matter Experts
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                Your Expertise Deserves an Infrastructure.
+                Your Business Should Fund Your Life. Not Consume It.
               </h1>
               <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-                We build the online learning environments, marketing ecosystems, and digital platforms that turn subject matter experts into scalable businesses.
+                We build online courses, learning management systems, and digital platforms that turn your expertise into a scalable business. You bring the knowledge — we design, build, and hand off the infrastructure that delivers it.
               </p>
               <button
                 onClick={openModal}
@@ -111,10 +111,10 @@ export default function PrivateSectorPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
               <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
-                You've built the expertise. The business hasn't caught up yet.
+                You didn't spend years building expertise just to piece together a business from scratch.
               </h2>
               <p className="text-gray-500 text-lg">
-                Most experts try to solve this with another platform. The problem isn't the platform—it's the architecture underneath it.
+                The gap isn't knowledge — it's infrastructure. We build the systems that turn what you know into what you sell.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
@@ -414,21 +414,80 @@ export default function PrivateSectorPage() {
           </div>
         </section>
 
+        {/* ── MIKE WALKER SECTION ──────────────────────────────────── */}
+        <section className="bg-[#04080B] py-20 md:py-28 grain-overlay">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">The Founder</p>
+                <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-6">
+                  Mike Walker has been building since 1996.
+                </h2>
+                <p className="text-white/60 text-lg leading-relaxed mb-6">
+                  Investor, operator, author, and speaker — Mike built BrightLink on a belief that most people trade their life for their business when it should be the other way around. The systems he teaches and the infrastructure BrightLink builds are designed around one principle: your business should fund your life, not consume it.
+                </p>
+                <p className="text-white/60 text-base leading-relaxed mb-8">
+                  He&apos;s a two-time Amazon bestselling author — The Exceptional Experience, The Systems-Thinking Visionary, The SOS Methodology — and has led organizations through hundreds of digital builds, training programs, and platform launches. BrightLink is what happens when that experience gets applied to your project.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'The Exceptional Experience',
+                    'The Systems-Thinking Visionary',
+                    'The SOS Methodology',
+                  ].map((book) => (
+                    <span key={book} className="px-3 py-1.5 border border-white/[0.12] text-white/50 text-xs rounded-sm font-medium">
+                      {book}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-[#0d1419] rounded-sm p-10 border border-white/[0.06]">
+                <p className="font-display font-black text-5xl text-white leading-tight mb-3">Mike<br />Walker</p>
+                <p className="text-[#FF5833] text-sm font-semibold tracking-widest uppercase mb-8">Founder &amp; Principal</p>
+                <div className="flex flex-col gap-3">
+                  {[
+                    'Two-time Amazon bestselling author',
+                    'Investor, Operator, Author &amp; Speaker',
+                    'Building since 1996',
+                    '300+ clients · 1,400+ students certified',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF5833] mt-1.5 shrink-0" />
+                      <p className="text-white/50 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
+                    </div>
+                  ))}
+                </div>
+                <blockquote className="mt-8 pt-8 border-t border-white/[0.08]">
+                  <p className="text-white/40 text-sm italic leading-relaxed">
+                    &ldquo;Mike Walker is a straight-up genius when it comes to business.&rdquo;
+                  </p>
+                  <p className="text-white/25 text-xs mt-2">— Marley Jaxx</p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ──────────────────────────────────────────────────── */}
-        <section className="bg-[#04080B] text-white py-20 md:py-28 grain-overlay">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="h-0.5 w-8 bg-[#FF5833] mx-auto mb-8" />
+        <section className="bg-[#FF5833] text-white py-20 md:py-28 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.3) 39px, rgba(255,255,255,0.3) 40px)',
+            }}
+          />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight mb-5">
-              Ready to build it?
+              Ready to build the business that funds your life?
             </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-              Tell us what you're working on. We'll tell you how we'd approach it—no jargon, no pitch deck.
+            <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+              Tell us what you&apos;re working on. We&apos;ll show you how we&apos;d build it — no jargon, no pitch deck.
             </p>
             <button
               onClick={openModal}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#04080B] text-white font-semibold rounded-md hover:bg-black transition-colors text-base min-h-[52px]"
             >
-              Let's Build It
+              Start the Conversation
               <ArrowRight size={18} />
             </button>
           </div>
