@@ -201,56 +201,71 @@ export default function PrivateSectorPage() {
           </div>
         </section>
 
-        {/* ── CASE STUDIES ─────────────────────────────────────────── */}
-        <section className="py-20 md:py-28 bg-[#04080B] text-white grain-overlay">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-14">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">Case Studies</p>
-              <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight">
-                Built from scratch. Running today.
-              </h2>
+        {/* ── LIKES & FOLLOWS → DOLLARS & CENTS ───────────────────── */}
+        <section className="bg-[#04080B] text-white grain-overlay py-20 md:py-32">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-8">The Gap We Close</p>
+            <h2 className="font-display font-black text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.0] tracking-tight text-white mb-8">
+              We help you turn your<br className="hidden md:block" />{' '}
+              <span className="text-[#FF5833]">likes and follows</span> into<br className="hidden md:block" />{' '}
+              dollars and cents.
+            </h2>
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+              You've built the audience. You've earned the attention. The missing piece isn't more content — it's the infrastructure that converts your influence into income.
+            </p>
+            <div className="grid md:grid-cols-3 gap-px bg-white/[0.06] rounded-xl overflow-hidden border border-white/[0.06]">
+              {[
+                { label: 'You have', value: 'The Audience' },
+                { label: 'You need', value: 'The Infrastructure' },
+                { label: 'We build', value: 'The Bridge' },
+              ].map(({ label, value }, i) => (
+                <div key={i} className="bg-[#04080B] px-8 py-10 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-3">{label}</p>
+                  <p className="font-display font-bold text-2xl text-white">{value}</p>
+                </div>
+              ))}
             </div>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/5 rounded-xl p-8 md:p-10 border border-white/10">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">Case Study</p>
-                <h3 className="font-display font-bold text-2xl md:text-3xl mb-4 leading-tight">
-                  S.A.F.E. — Sexual Assault Forensic Examiners
-                </h3>
-                <p className="text-white/60 leading-relaxed mb-6 text-sm">
-                  We built a full online learning environment and professional development platform for Sexual Assault Forensic Examiners—a highly specialized professional audience with strict credentialing requirements. This included curriculum design, LMS build, and a marketing system to reach the right professionals nationally.
-                </p>
-                <div className="pt-5 border-t border-white/10">
-                  <p className="text-xs text-white/40 mb-2">Outcome</p>
-                  <p className="text-sm text-white/70 font-medium">
-                    A fully operational online training business serving a national audience of forensic health professionals.
-                  </p>
-                </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {['LMS Build', 'Curriculum Design', 'Marketing System', 'Credentialing'].map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-white/10 text-white/60 text-xs rounded-md">{tag}</span>
-                  ))}
-                </div>
-              </div>
+          </div>
+        </section>
 
-              <div className="bg-white/5 rounded-xl p-8 md:p-10 border border-white/10">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">Case Study</p>
-                <h3 className="font-display font-bold text-2xl md:text-3xl mb-4 leading-tight">
-                  Protector Nation
-                </h3>
-                <p className="text-white/60 leading-relaxed mb-6 text-sm">
-                  Protector Nation needed to monetize years of real-world expertise in personal protection training. We built the course infrastructure, community platform, and marketing ecosystem from the ground up—turning deep tactical knowledge into a scalable digital business.
+        {/* ── WHO WE SERVE ─────────────────────────────────────────── */}
+        <section className="py-20 md:py-28 bg-[#F7F5F0]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-5">Who We Serve</p>
+                <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-6">
+                  You've put in the work. The world knows it. Now let's build the business.
+                </h2>
+                <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                  The people we serve aren't beginners. They've spent years — sometimes decades — building credibility and authority in their space. They have books. They've spoken on stages. They have a strong social presence and a loyal following.
                 </p>
-                <div className="pt-5 border-t border-white/10">
-                  <p className="text-xs text-white/40 mb-2">Outcome</p>
-                  <p className="text-sm text-white/70 font-medium">
-                    A complete digital business—courses, community, and content—ready to scale.
-                  </p>
-                </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {['Course Build', 'Community Platform', 'Marketing Ecosystem', 'Launch'].map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-white/10 text-white/60 text-xs rounded-md">{tag}</span>
-                  ))}
-                </div>
+                <p className="text-gray-500 text-lg leading-relaxed mb-6">
+                  But likes and follows don't pay the bills. And they haven't cracked the code on how to turn their intellectual property into a scalable digital business that runs without them trading time for money.
+                </p>
+                <p className="text-gray-700 font-medium text-lg leading-relaxed">
+                  That's exactly the gap we close — monetizing your message, packaging your mission, and building the infrastructure that lets you scale without burning out.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Sound familiar?</p>
+                {[
+                  { check: true,  text: 'You\'ve been in your industry for years and have genuine authority' },
+                  { check: true,  text: 'You have a book, a speaking career, or a strong following' },
+                  { check: true,  text: 'Your social content gets attention — but it\'s not translating to consistent revenue' },
+                  { check: true,  text: 'You know what you want to teach — you just don\'t know how to package and sell it' },
+                  { check: true,  text: 'You\'ve looked at Kajabi, Skool, or Teachable but don\'t know where to start' },
+                  { check: true,  text: 'You\'re ready to stop trading time for money and build something that scales' },
+                ].map(({ check, text }, i) => (
+                  <div key={i} className="flex items-start gap-4 bg-white rounded-xl px-6 py-5 border border-gray-100">
+                    <div className="w-5 h-5 rounded-full bg-[#FF5833] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                        <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <p className="text-sm text-gray-700 leading-relaxed">{text}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -300,35 +315,6 @@ export default function PrivateSectorPage() {
           </div>
         </section>
 
-        {/* ── WHO WE WORK WITH ─────────────────────────────────────── */}
-        <section className="py-20 md:py-28 bg-[#F7F5F0]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
-                You've put in the years. Now let's build the business.
-              </h2>
-              <p className="text-gray-500 text-lg max-w-2xl">
-                We work with experts across fields—the common thread is real expertise worth packaging.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                { title: 'Consultants & Coaches', desc: 'Experts who\'ve built client businesses but have no digital product yet' },
-                { title: 'Healthcare & Clinical', desc: 'Nurses, therapists, forensic specialists with CPD needs and certification authority' },
-                { title: 'Law Enforcement & Military', desc: 'Training expertise that needs a digital delivery channel and scalable model' },
-                { title: 'Financial & Legal Advisors', desc: 'Knowledge monetization for regulated professionals with compliance-aware content' },
-                { title: 'Educators & Academics', desc: 'Professors and teachers building beyond the institution' },
-                { title: 'Skilled Trades & Technical', desc: 'Certifiable skills that translate directly to online training and credentialing' },
-              ].map(({ title, desc }, i) => (
-                <div key={i} className="bg-white rounded-xl p-6 border border-gray-100">
-                  <div className="h-0.5 w-5 bg-[#FF5833] mb-3" />
-                  <h3 className="font-semibold text-[#04080B] text-sm mb-1.5">{title}</h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
         <section className="py-20 md:py-28 bg-white">
