@@ -122,6 +122,53 @@ export default function PublicClient() {
           </div>
         </section>
 
+        {/* ── TRUST LOGOS ──────────────────────────────────────────── */}
+        <section className="py-10 bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 text-center mb-8">
+              Registered &amp; Certified With
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+
+              {/* U.S. Small Business Administration */}
+              <div className="flex items-center opacity-75 hover:opacity-100 transition-opacity">
+                <svg width="96" height="48" viewBox="0 0 96 48" xmlns="http://www.w3.org/2000/svg" aria-label="U.S. Small Business Administration">
+                  <rect width="96" height="48" rx="4" fill="#1b4f9c"/>
+                  <text x="48" y="26" textAnchor="middle" fill="white" fontSize="20" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" letterSpacing="1">SBA</text>
+                  <text x="48" y="39" textAnchor="middle" fill="rgba(255,255,255,0.75)" fontSize="4.8" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="0.5">U.S. SMALL BUSINESS ADMINISTRATION</text>
+                </svg>
+              </div>
+
+              {/* America's SBDC */}
+              <div className="flex items-center opacity-75 hover:opacity-100 transition-opacity">
+                <svg width="90" height="48" viewBox="0 0 90 48" xmlns="http://www.w3.org/2000/svg" aria-label="America's SBDC">
+                  <text x="45" y="20" textAnchor="middle" fill="#2d6a2d" fontSize="11" fontFamily="Arial, Helvetica, sans-serif" fontStyle="italic">america's</text>
+                  <text x="45" y="42" textAnchor="middle" fill="#f47920" fontSize="24" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" letterSpacing="1">SBDC</text>
+                </svg>
+              </div>
+
+              {/* SAM.gov */}
+              <div className="flex items-center opacity-75 hover:opacity-100 transition-opacity">
+                <svg width="110" height="48" viewBox="0 0 110 48" xmlns="http://www.w3.org/2000/svg" aria-label="SAM.gov Active Registration">
+                  <text x="55" y="30" textAnchor="middle" fill="#005ea2" fontSize="26" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold">SAM.gov</text>
+                  <text x="55" y="44" textAnchor="middle" fill="#71767a" fontSize="8" fontFamily="Arial, Helvetica, sans-serif">Active Registration</text>
+                </svg>
+              </div>
+
+              {/* California SBE */}
+              <div className="flex items-center opacity-75 hover:opacity-100 transition-opacity">
+                <svg width="96" height="48" viewBox="0 0 96 48" xmlns="http://www.w3.org/2000/svg" aria-label="California Small Business Enterprise Certified">
+                  <rect x="1" y="1" width="94" height="46" rx="3" fill="none" stroke="#003366" strokeWidth="1.5"/>
+                  <text x="48" y="15" textAnchor="middle" fill="#003366" fontSize="7" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold" letterSpacing="0.5">CALIFORNIA</text>
+                  <text x="48" y="28" textAnchor="middle" fill="#003366" fontSize="11" fontFamily="Arial, Helvetica, sans-serif" fontWeight="bold">SBE CERTIFIED</text>
+                  <text x="48" y="40" textAnchor="middle" fill="#003366" fontSize="7.5" fontFamily="Arial, Helvetica, sans-serif">#2051043</text>
+                </svg>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* ── CREDENTIAL MARQUEE ───────────────────────────────────── */}
         <CredentialMarquee />
 
