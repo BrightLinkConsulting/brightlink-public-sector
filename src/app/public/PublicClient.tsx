@@ -421,6 +421,54 @@ export default function PublicClient() {
           </div>
         </section>
 
+        {/* ── Capability Statement ─────────────────────────────────── */}
+        <section className="bg-[#F7F5F0] py-20 md:py-28">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
+
+              {/* Document card */}
+              <div className="flex-shrink-0">
+                <div className="w-48 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                  <div className="bg-[#04080B] px-4 py-3 flex items-center gap-2">
+                    <FileText size={16} className="text-[#FF5833]" />
+                    <span className="text-white text-xs font-semibold uppercase tracking-wider">PDF</span>
+                  </div>
+                  <div className="px-4 py-5">
+                    <p className="text-xs font-bold text-[#04080B] uppercase tracking-widest mb-1">BrightLink</p>
+                    <p className="text-sm font-semibold text-gray-700 leading-tight">Capability Statement</p>
+                    <div className="mt-3 pt-3 border-t border-gray-100 space-y-1">
+                      <p className="text-[10px] text-gray-400">CAGE · 1A8D6</p>
+                      <p className="text-[10px] text-gray-400">UEI · HPP7BBEYCQG5</p>
+                      <p className="text-[10px] text-gray-400">CA SBE · #2051043</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Copy + download */}
+              <div className="flex-1">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-3">Capability Statement</p>
+                <h2 className="font-display font-bold text-3xl md:text-4xl text-[#04080B] leading-tight mb-4">
+                  Everything a contracting officer needs in one document.
+                </h2>
+                <p className="text-gray-500 leading-relaxed mb-6">
+                  Company snapshot, NAICS and PSC codes, past performance, differentiators, and full contact information — formatted for procurement review. Download it now and share it with your team.
+                </p>
+                <a
+                  href="/BrightLink-Capability-Statement.pdf"
+                  download="BrightLink-Capability-Statement.pdf"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#04080B] text-white font-semibold rounded-md hover:bg-[#1E3A5F] transition-colors text-sm"
+                >
+                  <FileText size={16} />
+                  Download Capability Statement
+                </a>
+                <p className="text-gray-400 text-xs mt-3">PDF · No form required</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA ──────────────────────────────────────────────────── */}
         <section className="bg-[#04080B] text-white py-20 md:py-28 grain-overlay">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
