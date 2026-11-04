@@ -43,8 +43,12 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 }
 
 // ─── Hero animated words ──────────────────────────────────────────────────────
-const heroWords = ['Your', 'Message,', 'Your', 'IP,', 'Your', 'Mission.', 'Delivered', 'At', 'Scale.']
-const orangeWords = new Set(['Delivered', 'At', 'Scale.'])
+// Hero headline: explicit line breaks for layout control
+const heroLines = [
+  { words: ['Your', 'Message,', 'Your', 'IP,'], orange: false },
+  { words: ['Your', 'Mission.'], orange: false },
+  { words: ['Delivered', 'At', 'Scale.'], orange: true },
+]
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -103,32 +107,32 @@ export default function HomePage() {
               Online Learning &amp; Digital Infrastructure
             </motion.p>
 
-            {/* Animated headline */}
-            <div className="overflow-hidden mb-10">
-              <motion.h1
-                className="font-display font-black text-[clamp(3rem,9vw,8.5rem)] leading-[0.9] tracking-tight text-white"
-                initial="hidden"
-                animate="visible"
-                variants={stagger}
-              >
-                {heroWords.map((word, i) => (
-                  <motion.span
-                    key={i}
-                    variants={{
-                      hidden: { opacity: 0, y: '100%' },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: { duration: 0.7, delay: 0.3 + i * 0.09, ease: [0.22, 1, 0.36, 1] },
-                      },
-                    }}
-                    className="inline-block mr-[0.2em] last:mr-0"
-                    style={{ color: orangeWords.has(word) ? '#FF5833' : undefined }}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </motion.h1>
+            {/* Animated headline — explicit 3-line layout */}
+            <div className="mb-10">
+              <h1 className="font-display font-black text-[clamp(2.6rem,8vw,8rem)] leading-[1.0] tracking-tight text-white">
+                {(() => {
+                  let wordIdx = 0
+                  return heroLines.map((line, lineIdx) => (
+                    <div key={lineIdx} className="block overflow-hidden">
+                      {line.words.map((word) => {
+                        const idx = wordIdx++
+                        return (
+                          <motion.span
+                            key={idx}
+                            initial={{ opacity: 0, y: '110%' }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.3 + idx * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                            className="inline-block mr-[0.18em] last:mr-0"
+                            style={{ color: line.orange ? '#FF5833' : undefined }}
+                          >
+                            {word}
+                          </motion.span>
+                        )
+                      })}
+                    </div>
+                  ))
+                })()}
+              </h1>
             </div>
 
             {/* Sub + CTAs */}
@@ -138,9 +142,14 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 1.0, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
             >
-              <p className="text-white/55 text-lg leading-relaxed max-w-sm">
-                We build online training courses and learning management systems — then set up the platform, and train your team to run it. Design. Build. Hand Off.
-              </p>
+              <div className="max-w-sm">
+                <p className="text-white/55 text-lg leading-relaxed">
+                  We build online training courses and learning management systems — then set up the platform, and train your team to run it.
+                </p>
+                <p className="text-white font-semibold text-lg mt-3 tracking-wide">
+                  Design. Build. Hand Off.
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 shrink-0">
                 <Link
                   href="/public"
