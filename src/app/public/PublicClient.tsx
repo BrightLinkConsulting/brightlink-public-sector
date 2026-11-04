@@ -111,13 +111,23 @@ export default function PublicClient() {
                   </span>
                 ))}
               </div>
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-              >
-                Start a Conversation
-                <ArrowRight size={18} />
-              </button>
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  onClick={openModal}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+                >
+                  Start a Conversation
+                  <ArrowRight size={18} />
+                </button>
+                <a
+                  href="/BrightLink-Capability-Statement.pdf"
+                  download="BrightLink-Capability-Statement.pdf"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border border-white/30 text-white font-semibold rounded-md hover:border-white/60 hover:bg-white/5 transition-colors text-base min-h-[52px]"
+                >
+                  <FileText size={18} />
+                  Download Capability Statement
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -423,37 +433,35 @@ export default function PublicClient() {
 
         {/* ── Capability Statement ─────────────────────────────────── */}
         <section className="bg-[#F7F5F0] py-20 md:py-28">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16">
 
-              {/* Document card */}
-              <div className="flex-shrink-0">
-                <div className="w-48 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-                  <div className="bg-[#04080B] px-4 py-3 flex items-center gap-2">
-                    <FileText size={16} className="text-[#FF5833]" />
-                    <span className="text-white text-xs font-semibold uppercase tracking-wider">PDF</span>
-                  </div>
-                  <div className="px-4 py-5">
-                    <p className="text-xs font-bold text-[#04080B] uppercase tracking-widest mb-1">BrightLink</p>
-                    <p className="text-sm font-semibold text-gray-700 leading-tight">Capability Statement</p>
-                    <div className="mt-3 pt-3 border-t border-gray-100 space-y-1">
-                      <p className="text-[10px] text-gray-400">CAGE · 1A8D6</p>
-                      <p className="text-[10px] text-gray-400">UEI · HPP7BBEYCQG5</p>
-                      <p className="text-[10px] text-gray-400">CA SBE · #2051043</p>
-                    </div>
-                  </div>
+              {/* Real PDF preview */}
+              <div className="flex-shrink-0 w-full md:w-64">
+                <div className="rounded-xl overflow-hidden shadow-xl border border-gray-200">
+                  <img
+                    src="/images/capability-statement-preview.jpg"
+                    alt="BrightLink Consulting Capability Statement"
+                    className="w-full object-cover"
+                  />
                 </div>
               </div>
 
               {/* Copy + download */}
-              <div className="flex-1">
+              <div className="flex-1 pt-2">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-3">Capability Statement</p>
                 <h2 className="font-display font-bold text-3xl md:text-4xl text-[#04080B] leading-tight mb-4">
-                  Everything a contracting officer needs in one document.
+                  BrightLink Consulting LLC
                 </h2>
-                <p className="text-gray-500 leading-relaxed mb-6">
-                  Company snapshot, NAICS and PSC codes, past performance, differentiators, and full contact information — formatted for procurement review. Download it now and share it with your team.
+                <p className="text-gray-500 leading-relaxed mb-2">
+                  NAICS · PSC · UNSPSC · NIGP codes, past performance, differentiators, and contact information.
                 </p>
+                <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400 mb-8">
+                  <span>CAGE · 1A8D6</span>
+                  <span>UEI · HPP7BBEYCQG5</span>
+                  <span>CA SBE · #2051043</span>
+                  <span>SAM.gov Active</span>
+                </div>
                 <a
                   href="/BrightLink-Capability-Statement.pdf"
                   download="BrightLink-Capability-Statement.pdf"
