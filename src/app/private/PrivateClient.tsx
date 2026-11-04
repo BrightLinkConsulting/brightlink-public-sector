@@ -86,23 +86,40 @@ export default function PrivateClient() {
           {/* Orange accent strip — private sector identifier */}
           <div className="h-1 w-full bg-[#FF5833]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-24 md:pb-32">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">
-                Subject Matter Experts
-              </p>
-              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                We Turn Your Likes and Follows Into Dollars and Cents.
-              </h1>
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-                We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
-              </p>
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-              >
-                Let's Build It
-                <ArrowRight size={18} />
-              </button>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">
+                  Subject Matter Experts
+                </p>
+                <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
+                  We Turn Your Likes and Follows Into Dollars and Cents.
+                </h1>
+                <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
+                  We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
+                </p>
+                <button
+                  onClick={openModal}
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+                >
+                  Let's Build It
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+              <div className="hidden md:block relative">
+                <div className="relative rounded-2xl overflow-hidden">
+                  <img
+                    src="https://mikegwalker.com/assets/hero-banner-dark-1280.webp"
+                    alt="Mike Walker, Founder of BrightLink Consulting"
+                    className="w-full object-cover object-top"
+                    style={{ maxHeight: '560px' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <p className="text-white font-semibold text-sm">Mike Walker</p>
+                    <p className="text-white/50 text-xs">Founder, BrightLink Consulting</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -315,6 +332,45 @@ export default function PrivateClient() {
           </div>
         </section>
 
+
+        {/* ── WHO YOU'RE WORKING WITH ──────────────────────────────── */}
+        <section className="bg-[#04080B] overflow-hidden">
+          <div className="grid md:grid-cols-2">
+            {/* Photo */}
+            <div className="relative h-72 md:h-auto min-h-[480px]">
+              <img
+                src="https://mikegwalker.com/assets/mike-stage-1280.webp"
+                alt="Mike Walker speaking on stage"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#04080B]/70 hidden md:block" />
+            </div>
+            {/* Text */}
+            <div className="px-8 py-16 md:px-14 md:py-24 text-white flex flex-col justify-center">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">Who You&rsquo;re Working With</p>
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-6">
+                You&rsquo;re not hiring an agency.<br />You&rsquo;re working with Mike.
+              </h2>
+              <p className="text-white/60 leading-relaxed mb-5">
+                I&rsquo;ve been building businesses for 30+ years — online courses, communities, coaching programs, digital products, and the marketing systems that sell them. I know what works because I&rsquo;ve built it, failed at it, and rebuilt it.
+              </p>
+              <p className="text-white/60 leading-relaxed mb-10">
+                When you work with BrightLink, you get me in the room — not a junior account manager, not a template playbook. Me, with a skilled team executing behind it.
+              </p>
+              <div className="flex items-center gap-4">
+                <img
+                  src="https://mikegwalker.com/assets/signature-480.webp"
+                  alt="Mike Walker"
+                  className="h-10 opacity-70"
+                />
+                <div>
+                  <p className="text-white font-semibold text-sm">Mike Walker</p>
+                  <p className="text-white/40 text-xs">Founder · BrightLink Consulting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
         <section className="py-20 md:py-28 bg-white">
