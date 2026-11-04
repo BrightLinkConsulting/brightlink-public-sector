@@ -136,14 +136,11 @@ export default function TestimonialsClient() {
         <section className="bg-[#04080B] text-white py-20 md:py-28 grain-overlay">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2
-              className="font-display font-bold text-4xl md:text-5xl leading-tight mb-5"
+              className="font-display font-bold text-4xl md:text-5xl leading-tight mb-10"
               style={{ textWrap: 'balance' } as React.CSSProperties}
             >
               Ready to write your own success story?
             </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-              Whether you&apos;re in government or building your own platform, we&apos;d love to hear about your project.
-            </p>
             <button
               onClick={() => setModalOpen(true)}
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
