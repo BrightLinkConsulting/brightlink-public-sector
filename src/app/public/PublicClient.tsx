@@ -235,9 +235,8 @@ export default function PublicClient() {
                 Work that speaks for itself.
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Featured */}
-              <div className="md:col-span-2 bg-[#04080B] text-white rounded-xl p-8 md:p-10">
+            <div className="max-w-3xl">
+              <div className="bg-[#04080B] text-white rounded-xl p-8 md:p-10">
                 <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">Featured</p>
                 <h3 className="font-display font-bold text-2xl md:text-3xl mb-4 leading-tight">
                   Inland Empire SBDC Network
@@ -248,20 +247,6 @@ export default function PublicClient() {
                 <p className="text-sm text-white/40">
                   SBA-funded · Operational infrastructure · Digital learning · Advisor training
                 </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <div className="bg-white rounded-xl p-6 border border-gray-100 flex-1">
-                  <h3 className="font-display font-bold text-lg text-[#04080B] mb-2">Bravo! Media Academy</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Training infrastructure for a youth media organization serving Title I schools. Full curriculum design and delivery system.
-                  </p>
-                </div>
-                <div className="bg-white rounded-xl p-6 border border-gray-100 flex-1">
-                  <h3 className="font-display font-bold text-lg text-[#04080B] mb-2">Emergence</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    Learning ecosystem for first-generation college students. Program architecture and digital learning environment.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -445,12 +430,9 @@ export default function PublicClient() {
         <section className="bg-[#04080B] text-white py-20 md:py-28 grain-overlay">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="h-0.5 w-8 bg-[#1E3A5F] mx-auto mb-8" />
-            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight mb-5">
+            <h2 className="font-display font-bold text-4xl md:text-5xl leading-tight mb-10">
               Ready to scope your project?
             </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-xl mx-auto">
-              Whether you have a contract in hand or are still in the planning phase, let's talk about what you're building.
-            </p>
             <button
               onClick={openModal}
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
