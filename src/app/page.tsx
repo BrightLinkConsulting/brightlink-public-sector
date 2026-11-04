@@ -45,8 +45,8 @@ function Reveal({ children, className = '', delay = 0 }: { children: React.React
 // ─── Hero animated words ──────────────────────────────────────────────────────
 // Hero headline: explicit line breaks for layout control
 const heroLines = [
-  { words: ['Your', 'Message,'], orange: false },
   { words: ['Your', 'Mission.'], orange: false },
+  { words: ['Your', 'Message.'], orange: false },
   { words: ['Delivered', 'At', 'Scale.'], orange: true },
 ]
 
