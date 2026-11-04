@@ -87,40 +87,25 @@ export default function PrivateClient() {
           {/* Orange accent strip — private sector identifier */}
           <div className="h-1 w-full bg-[#FF5833]" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-24 md:pb-32">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">
-                  Subject Matter Experts
-                </p>
-                <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                  We Turn Your Likes and Follows Into Dollars and Cents.
-                </h1>
-                <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
-                  We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
-                </p>
-                <button
-                  onClick={openModal}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-                >
-                  Let's Build It
-                  <ArrowRight size={18} />
-                </button>
-              </div>
-              <div className="hidden md:block relative">
-                <div className="relative rounded-2xl overflow-hidden">
-                  <img
-                    src="https://mikegwalker.com/assets/hero-banner-dark-1280.webp"
-                    alt="Mike Walker, Founder of BrightLink Consulting"
-                    className="w-full object-cover object-top"
-                    style={{ maxHeight: '560px' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6">
-                    <p className="text-white font-semibold text-sm">Mike Walker</p>
-                    <p className="text-white/50 text-xs">Founder, BrightLink Consulting</p>
-                  </div>
-                </div>
-              </div>
+            <div className="max-w-4xl">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">
+                Subject Matter Experts
+              </p>
+              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
+                We Turn Your Likes and Follows{' '}
+                <br className="hidden lg:block" />
+                Into Dollars and Cents.
+              </h1>
+              <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
+                We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
+              </p>
+              <button
+                onClick={openModal}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+              >
+                Let's Build It
+                <ArrowRight size={18} />
+              </button>
             </div>
           </div>
         </section>
@@ -363,45 +348,6 @@ export default function PrivateClient() {
         </section>
 
 
-        {/* ── WHO YOU'RE WORKING WITH ──────────────────────────────── */}
-        <section className="bg-[#04080B] overflow-hidden">
-          <div className="grid md:grid-cols-2">
-            {/* Photo */}
-            <div className="relative h-72 md:h-auto min-h-[480px]">
-              <img
-                src="https://mikegwalker.com/assets/mike-stage-1280.webp"
-                alt="Mike Walker speaking on stage"
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#04080B]/70 hidden md:block" />
-            </div>
-            {/* Text */}
-            <div className="px-8 py-16 md:px-14 md:py-24 text-white flex flex-col justify-center">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">Who You&rsquo;re Working With</p>
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-6">
-                You&rsquo;re not hiring an agency.<br />You&rsquo;re working with Mike.
-              </h2>
-              <p className="text-white/60 leading-relaxed mb-5">
-                I&rsquo;ve been building businesses for 30+ years — online courses, communities, coaching programs, digital products, and the marketing systems that sell them. I know what works because I&rsquo;ve built it, failed at it, and rebuilt it.
-              </p>
-              <p className="text-white/60 leading-relaxed mb-10">
-                When you work with BrightLink, you get me in the room — not a junior account manager, not a template playbook. Me, with a skilled team executing behind it.
-              </p>
-              <div className="flex items-center gap-4">
-                <img
-                  src="https://mikegwalker.com/assets/signature-480.webp"
-                  alt="Mike Walker"
-                  className="h-10 opacity-70"
-                />
-                <div>
-                  <p className="text-white font-semibold text-sm">Mike Walker</p>
-                  <p className="text-white/40 text-xs">Founder · BrightLink Consulting</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -504,47 +450,58 @@ export default function PrivateClient() {
         {/* ── MIKE WALKER SECTION ──────────────────────────────────── */}
         <section className="bg-[#04080B] py-20 md:py-28 grain-overlay">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">The Founder</p>
+            <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+              {/* Photo — studio portrait, face always visible */}
+              <div className="relative rounded-xl overflow-hidden aspect-[3/4] border border-white/[0.06] order-2 md:order-1">
+                <Image
+                  src="https://mikegwalker.com/assets/hero-banner-dark-1280.webp"
+                  alt="Mike Walker, Founder of BrightLink Consulting"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/90 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src="https://mikegwalker.com/assets/signature-480.webp"
+                      alt="Mike Walker signature"
+                      className="h-8 opacity-60"
+                    />
+                  </div>
+                  <blockquote>
+                    <p className="text-white/65 text-sm italic leading-relaxed">
+                      &ldquo;Mike Walker is a straight-up genius when it comes to business.&rdquo;
+                    </p>
+                    <p className="text-white/35 text-xs mt-2">— Marley Jaxx, CEO · Jaxx Productions</p>
+                  </blockquote>
+                </div>
+              </div>
+              {/* Text */}
+              <div className="order-1 md:order-2 pt-0 md:pt-4">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-6">Who You&rsquo;re Working With</p>
                 <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-6">
-                  Mike Walker has been building since 1996.
+                  You&rsquo;re not hiring an agency.<br />You&rsquo;re working with Mike.
                 </h2>
-                <p className="text-white/60 text-lg leading-relaxed mb-6">
-                  Investor, operator, author, and speaker — Mike built BrightLink on a belief that most people trade their life for their business when it should be the other way around. The systems he teaches and the infrastructure BrightLink builds are designed around one principle: your business should fund your life, not consume it.
+                <p className="text-white/60 text-lg leading-relaxed mb-5">
+                  I&rsquo;ve been building businesses for 30+ years — online courses, communities, coaching programs, digital products, and the marketing systems that sell them. I know what works because I&rsquo;ve built it, failed at it, and rebuilt it.
                 </p>
                 <p className="text-white/60 text-base leading-relaxed mb-8">
-                  He&apos;s a two-time Amazon bestselling author — The Exceptional Experience, The Systems-Thinking Visionary, The SOS Methodology — and has led organizations through hundreds of digital builds, training programs, and platform launches. BrightLink is what happens when that experience gets applied to your project.
+                  When you work with BrightLink, you get me in the room — not a junior account manager, not a template playbook. Me, with a team executing behind it.
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {[
                     'The Exceptional Experience',
                     'The Systems-Thinking Visionary',
                     'The SOS Methodology',
                   ].map((book) => (
-                    <span key={book} className="px-3 py-1.5 border border-white/[0.12] text-white/50 text-xs rounded-sm font-medium">
+                    <span key={book} className="px-3 py-1.5 border border-white/[0.12] text-white/50 text-xs rounded font-medium">
                       {book}
                     </span>
                   ))}
                 </div>
-              </div>
-              <div className="relative rounded-sm overflow-hidden aspect-[4/5] border border-white/[0.06]">
-                <Image
-                  src="https://mikegwalker.com/assets/mike-stage-1280.webp"
-                  alt="Mike Walker speaking on stage"
-                  fill
-                  className="object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/95 via-[#04080B]/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <p className="font-display font-black text-3xl text-white leading-tight mb-1">Mike Walker</p>
-                  <p className="text-[#FF5833] text-xs font-semibold tracking-widest uppercase mb-5">Founder &amp; Principal</p>
-                  <blockquote>
-                    <p className="text-white/60 text-sm italic leading-relaxed">
-                      &ldquo;Mike Walker is a straight-up genius when it comes to business.&rdquo;
-                    </p>
-                    <p className="text-white/35 text-xs mt-2">— Marley Jaxx, CEO · Jaxx Productions</p>
-                  </blockquote>
+                <div>
+                  <p className="text-white font-semibold text-sm">Mike Walker</p>
+                  <p className="text-white/40 text-xs mt-0.5">Founder &amp; Principal · BrightLink Consulting</p>
                 </div>
               </div>
             </div>
