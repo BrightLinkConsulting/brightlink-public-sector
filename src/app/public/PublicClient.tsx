@@ -48,7 +48,7 @@ const faqSchema = {
       name: 'What NAICS codes does BrightLink Consulting use?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'BrightLink Consulting operates under NAICS codes 611430 (Professional Development), 611710 (Educational Support Services), 541611 (Administrative Management Consulting), 611420 (Computer Training), and 611519 (Other Technical/Trade Schools).',
+        text: 'BrightLink Consulting operates under NAICS codes 611430 (Professional & Management Development Training), 611710 (Educational Support Services), 611699 (All Other Miscellaneous Schools & Instruction), and 611420 (Computer Training).',
       },
     },
     {
@@ -344,37 +344,73 @@ export default function PublicClient() {
               Procurement & Compliance Codes
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">NAICS Codes</p>
-                <div className="space-y-2">
-                  {[
-                    { code: '611430', desc: 'Professional & Management Development Training' },
-                    { code: '611710', desc: 'Educational Support Services' },
-                    { code: '541611', desc: 'Administrative Management Consulting' },
-                    { code: '611420', desc: 'Computer Training' },
-                    { code: '611519', desc: 'Other Technical & Trade Schools' },
-                  ].map(({ code, desc }) => (
-                    <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
-                      <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[64px]">{code}</span>
-                      <span className="text-sm text-gray-500">{desc}</span>
-                    </div>
-                  ))}
+              <div className="space-y-8">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">NAICS Codes</p>
+                  <div className="space-y-2">
+                    {[
+                      { code: '611430', desc: 'Professional & Management Development Training' },
+                      { code: '611710', desc: 'Educational Support Services' },
+                      { code: '611699', desc: 'All Other Miscellaneous Schools & Instruction' },
+                      { code: '611420', desc: 'Computer Training' },
+                    ].map(({ code, desc }) => (
+                      <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
+                        <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[64px]">{code}</span>
+                        <span className="text-sm text-gray-500">{desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">UNSPSC Codes</p>
+                  <div className="space-y-2">
+                    {[
+                      { code: '86132000', desc: 'Vocational training' },
+                      { code: '86101700', desc: 'Business and management training' },
+                      { code: '86101601', desc: 'Curriculum development' },
+                      { code: '86111600', desc: 'Online education' },
+                    ].map(({ code, desc }) => (
+                      <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
+                        <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[80px]">{code}</span>
+                        <span className="text-sm text-gray-500">{desc}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">PSC Codes & Certifications</p>
-                <div className="space-y-2">
-                  {[
-                    { code: 'U099', desc: 'Education & Training — Other' },
-                    { code: 'R499', desc: 'Professional Support Services — Other' },
-                    { code: 'B599', desc: 'Special Studies & Analysis — Other' },
-                  ].map(({ code, desc }) => (
-                    <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
-                      <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[64px]">{code}</span>
-                      <span className="text-sm text-gray-500">{desc}</span>
-                    </div>
-                  ))}
-                  <div className="mt-6 space-y-2">
+              <div className="space-y-8">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">PSC Codes</p>
+                  <div className="space-y-2">
+                    {[
+                      { code: 'U008', desc: 'Training — Curriculum Development' },
+                      { code: 'U009', desc: 'Training — Other' },
+                      { code: 'U099', desc: 'Education & Training — Other' },
+                    ].map(({ code, desc }) => (
+                      <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
+                        <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[64px]">{code}</span>
+                        <span className="text-sm text-gray-500">{desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">NIGP Codes</p>
+                  <div className="space-y-2">
+                    {[
+                      { code: '924-35', desc: 'Training & Education — Online' },
+                      { code: '924-86', desc: 'Training & Education — Workforce Development' },
+                    ].map(({ code, desc }) => (
+                      <div key={code} className="flex items-baseline gap-3 py-2 border-b border-gray-50">
+                        <span className="font-mono text-sm font-semibold text-[#04080B] min-w-[64px]">{code}</span>
+                        <span className="text-sm text-gray-500">{desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Registrations & Certifications</p>
+                  <div className="space-y-2">
                     {[
                       { label: 'SAM.gov', value: 'Active Registration' },
                       { label: 'CAGE Code', value: '1A8D6' },
@@ -419,7 +455,7 @@ export default function PublicClient() {
                 },
                 {
                   q: 'What NAICS codes does BrightLink use?',
-                  a: 'Primary codes: 611430 (Professional Development), 611710 (Educational Support Services), 541611 (Administrative Management Consulting). Full code list available in our capability statement.',
+                  a: 'Primary NAICS codes: 611430 (Professional & Management Development Training), 611710 (Educational Support Services), 611699 (All Other Miscellaneous Schools & Instruction), 611420 (Computer Training). PSC codes: U008, U009, U099. Full list in our capability statement.',
                 },
               ].map(({ q, a }, i) => (
                 <div key={i} className="border-b border-gray-100 pb-6">
