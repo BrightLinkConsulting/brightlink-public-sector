@@ -91,10 +91,10 @@ export default function PrivateClient() {
                 Subject Matter Experts
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                Your Business Should Fund Your Life. Not Consume It.
+                We Turn Your Likes and Follows Into Dollars and Cents.
               </h1>
               <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-                We build online courses, learning management systems, and digital platforms that turn your expertise into a scalable business. You bring the knowledge — we design, build, and hand off the infrastructure that delivers it.
+                We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
               </p>
               <button
                 onClick={openModal}
