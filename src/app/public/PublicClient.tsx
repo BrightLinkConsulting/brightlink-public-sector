@@ -129,10 +129,16 @@ export default function PublicClient() {
         <section className="py-20 md:py-28 bg-[#F7F5F0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-14">
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4">
+              <h2
+                className="font-display font-bold text-4xl md:text-5xl text-[#04080B] leading-tight mb-4"
+                style={{ textWrap: 'balance' } as React.CSSProperties}
+              >
                 We handle the full build — curriculum, platform, documentation, and handoff.
               </h2>
-              <p className="text-gray-500 text-lg leading-relaxed">
+              <p
+                className="text-gray-500 text-lg leading-relaxed"
+                style={{ textWrap: 'balance' } as React.CSSProperties}
+              >
                 Every engagement is scoped to your requirements, your mandate, and your learners. You receive a fully operational learning environment — ready to run on day one.
               </p>
             </div>
@@ -374,17 +380,6 @@ export default function PublicClient() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ── TESTIMONIAL ──────────────────────────────────────────── */}
-        <section className="py-20 md:py-24 bg-[#F7F5F0]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-4xl text-gray-200 font-serif mb-6 leading-none">"</p>
-            <blockquote className="font-display font-bold text-2xl md:text-3xl text-[#04080B] leading-tight mb-6">
-              BrightLink helped us build something we didn't know was possible in a government context. The systems they designed have made our entire operation run smoother.
-            </blockquote>
-            <p className="text-gray-500 text-sm font-medium">— Program Director, SBDC Network</p>
           </div>
         </section>
 
