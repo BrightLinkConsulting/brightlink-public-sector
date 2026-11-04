@@ -325,21 +325,27 @@ export default function PrivateSectorPage() {
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               {[
                 {
-                  quote: 'The online learning environment BrightLink built for us was beyond what we thought was possible. It\'s become the foundation of our entire training operation.',
-                  name: 'Program Director',
-                  role: 'Online Education Organization',
+                  quote: "Mike Walker is one of the most brilliant people I've ever met. He sees around corners and helped me understand and love the business side of my business. Working with Mike is like having a business genius in your corner.",
+                  name: 'Kim OHara',
+                  role: 'Book Coach to Best Sellers',
+                  initials: 'KO',
+                  color: '#1E3A5F',
                 },
                 {
-                  quote: 'The marketing ecosystem they built for me changed everything. I went from posting and hoping to having a system that actually works.',
-                  name: 'Business Coach',
-                  role: 'Subject Matter Expert',
+                  quote: "Working with Mike was incredible. He gave me clarity and direction that completely shifted how I operate. If you get the chance to work with him, take it.",
+                  name: 'Marley Jaxx',
+                  role: 'CEO, Jaxx Productions',
+                  initials: 'MJ',
+                  color: '#FF5833',
                 },
                 {
-                  quote: 'Our community platform went from an idea to a thriving space in 90 days. The systems they put in place made all the difference.',
-                  name: 'Founder',
-                  role: 'Online Education Platform',
+                  quote: "Mike is one of the rare consultants who actually understands both the strategy AND the execution. The frameworks he built for us are still running our growth today.",
+                  name: 'Aleric Heck',
+                  role: 'CEO, AdOutreach',
+                  initials: 'AH',
+                  color: '#B45309',
                 },
-              ].map(({ quote, name, role }, i) => (
+              ].map(({ quote, name, role, initials, color }, i) => (
                 <div key={i} className="bg-[#F7F5F0] rounded-xl p-7 border border-gray-100">
                   <div className="flex gap-0.5 mb-4">
                     {[...Array(5)].map((_, j) => (
@@ -347,17 +353,25 @@ export default function PrivateSectorPage() {
                     ))}
                   </div>
                   <blockquote className="text-sm text-gray-700 leading-relaxed mb-5 italic">
-                    "{quote}"
+                    &ldquo;{quote}&rdquo;
                   </blockquote>
-                  <div>
-                    <p className="text-sm font-semibold text-[#04080B]">{name}</p>
-                    <p className="text-xs text-gray-400">{role}</p>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+                      style={{ backgroundColor: color }}
+                    >
+                      {initials}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-[#04080B]">{name}</p>
+                      <p className="text-xs text-gray-400">{role}</p>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
             <a href="/testimonials" className="text-sm font-semibold text-[#FF5833] hover:text-[#e84d2d] transition-colors inline-flex items-center gap-1.5">
-              Read all client testimonials
+              Read all client reviews
               <ArrowRight size={15} />
             </a>
           </div>
