@@ -86,27 +86,25 @@ export default function PrivateClient() {
         <section className="bg-[#04080B] text-white grain-overlay">
           {/* Orange accent strip — private sector identifier */}
           <div className="h-1 w-full bg-[#FF5833]" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-24 md:pb-32">
-            <div className="max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4">
-                Subject Matter Experts
-              </p>
-              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
-                We Turn Your Likes and Follows{' '}
-                <br className="hidden lg:block" />
-                Into Dollars and Cents.
-              </h1>
-              <p className="text-lg md:text-xl text-white/70 leading-relaxed mb-10 max-w-2xl">
-                We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
-              </p>
-              <button
-                onClick={openModal}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-              >
-                Let's Build It
-                <ArrowRight size={18} />
-              </button>
-            </div>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-8">
+              Subject Matter Experts
+            </p>
+            <h1 className="font-display font-black text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.0] tracking-tight text-white mb-8">
+              We help you turn your<br className="hidden md:block" />{' '}
+              <span className="text-[#FF5833]">likes and follows</span> into<br className="hidden md:block" />{' '}
+              dollars and cents.
+            </h1>
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+              We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
+            </p>
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+            >
+              Let&apos;s Build It
+              <ArrowRight size={18} />
+            </button>
           </div>
         </section>
 
@@ -233,17 +231,17 @@ export default function PrivateClient() {
           </div>
         </section>
 
-        {/* ── LIKES & FOLLOWS → DOLLARS & CENTS ───────────────────── */}
+        {/* ── THE GAP ──────────────────────────────────────────────── */}
         <section className="bg-[#04080B] text-white grain-overlay py-20 md:py-32">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-8">The Gap We Close</p>
-            <h2 className="font-display font-black text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.0] tracking-tight text-white mb-8">
-              We help you turn your<br className="hidden md:block" />{' '}
-              <span className="text-[#FF5833]">likes and follows</span> into<br className="hidden md:block" />{' '}
-              dollars and cents.
+            <h2 className="font-display font-black text-[clamp(2rem,5vw,4rem)] leading-[1.05] tracking-tight text-white mb-8">
+              You&rsquo;ve built the audience.<br className="hidden md:block" />{' '}
+              The missing piece is the infrastructure<br className="hidden md:block" />{' '}
+              that converts it into income.
             </h2>
             <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-              You've built the audience. You've earned the attention. The missing piece isn't more content — it's the infrastructure that converts your influence into income.
+              More content won&rsquo;t close this gap. The right system will.
             </p>
             <div className="grid md:grid-cols-3 gap-px bg-white/[0.06] rounded-xl overflow-hidden border border-white/[0.06]">
               {[
