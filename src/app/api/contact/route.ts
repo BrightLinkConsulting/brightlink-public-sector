@@ -67,17 +67,27 @@ export async function POST(request: Request) {
       }
     )
 
-    if (!contactRes.ok) {
-      const err = await contactRes.text()
-      console.error('GHL contact creation failed:', err)
-      return NextResponse.json(
-        { error: 'Failed to save contact.' },
-        { status: 500 }
-      )
-    }
+    let contactId: string | undefined
 
-    const contactData = await contactRes.json()
-    const contactId = contactData?.contact?.id
+    if (!contactRes.ok) {
+      const errText = await contactRes.text()
+      let errJson: { statusCode?: number; meta?: { contactId?: string } } = {}
+      try { errJson = JSON.parse(errText) } catch {}
+
+      // GHL returns 400 when contact already exists — extract the existing ID
+      if (contactRes.status === 400 && errJson?.meta?.contactId) {
+        contactId = errJson.meta.contactId
+      } else {
+        console.error('GHL contact creation failed:', errText)
+        return NextResponse.json(
+          { error: 'Failed to save contact.' },
+          { status: 500 }
+        )
+      }
+    } else {
+      const contactData = await contactRes.json()
+      contactId = contactData?.contact?.id
+    }
 
     if (!contactId) {
       return NextResponse.json(
