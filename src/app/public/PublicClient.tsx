@@ -197,16 +197,16 @@ export default function PublicClient() {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               <div className="bg-[#04080B] text-white rounded-xl p-8 md:p-10">
                 <div className="h-0.5 w-8 bg-[#FF5833] mb-6" />
-                <h3 className="font-display font-bold text-2xl mb-4">Government Training Programs</h3>
+                <h3 className="font-display font-bold text-2xl mb-4">Online Education Programs</h3>
                 <p className="text-white/60 leading-relaxed mb-6">
-                  SCORM-compliant, Section 508 accessible, mandate-aligned curriculum for agencies, contractors, and federally-funded programs. Delivered on time, documented for compliance.
+                  We build the online courses, learning environment, and staff training your program needs to operate. You bring the subject matter. We build the system that delivers it.
                 </p>
                 <ul className="space-y-2.5">
                   {[
-                    'SCORM 1.2 & 2004 compliant packages',
-                    'Section 508 / WCAG 2.1 AA accessible',
-                    'Mandate and outcome aligned',
-                    'Full documentation and deliverable binder',
+                    'Course design and curriculum development',
+                    'Learning platform setup and configuration',
+                    'Staff training and train-the-trainer',
+                    'Full documentation and deliverable handoff',
                     'Instructor-led and self-paced formats',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm text-white/70">
