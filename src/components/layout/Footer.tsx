@@ -75,9 +75,43 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <p>© {year} BrightLink Consulting. All rights reserved.</p>
-          <p>Designed and built to deliver.</p>
+        {/* Credential badge strip */}
+        <div className="mt-10 pt-8 border-t border-white/10">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-6 text-center">Registered &amp; Certified With</p>
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
+
+            {/* SBA */}
+            <div className="flex flex-col items-center gap-1 opacity-50 hover:opacity-80 transition-opacity">
+              <div className="bg-[#1b4f9c] rounded px-3 py-1.5 text-center">
+                <p className="text-white font-bold text-lg leading-none tracking-wide">SBA</p>
+                <p className="text-white/70 text-[6px] leading-none mt-0.5 tracking-widest uppercase">Small Business Administration</p>
+              </div>
+            </div>
+
+            {/* America's SBDC */}
+            <div className="flex flex-col items-center gap-0.5 opacity-50 hover:opacity-80 transition-opacity">
+              <p className="text-[#5a9e5a] text-xs italic leading-none">america's</p>
+              <p className="text-[#f47920] font-bold text-xl leading-none tracking-wide">SBDC</p>
+            </div>
+
+            {/* SAM.gov */}
+            <div className="flex flex-col items-center gap-0.5 opacity-50 hover:opacity-80 transition-opacity">
+              <p className="text-[#5b9fd4] font-bold text-xl leading-none">SAM.gov</p>
+              <p className="text-white/40 text-[9px] uppercase tracking-widest leading-none">Active Registration</p>
+            </div>
+
+            {/* CA SBE */}
+            <div className="flex flex-col items-center gap-0.5 opacity-50 hover:opacity-80 transition-opacity border border-white/20 rounded px-3 py-1.5 text-center">
+              <p className="text-white/60 text-[7px] font-bold uppercase tracking-widest leading-none">California</p>
+              <p className="text-white font-bold text-sm leading-none">SBE Certified</p>
+              <p className="text-white/40 text-[8px] leading-none mt-0.5">#2051043</p>
+            </div>
+
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
+            <p>© {year} BrightLink Consulting. All rights reserved.</p>
+            <p>Designed and built to deliver.</p>
+          </div>
         </div>
       </div>
     </footer>
