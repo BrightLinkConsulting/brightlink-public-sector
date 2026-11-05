@@ -95,7 +95,7 @@ export default function PrivateClient() {
               <span className="text-[#FF5833]">likes and follows</span> into<br className="hidden md:block" />{' '}
               dollars and cents.
             </h1>
-            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
               We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
             </p>
             <button
@@ -112,8 +112,8 @@ export default function PrivateClient() {
         <section className="bg-[#04080B] pb-20 md:pb-28">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4 text-center">A Quick Introduction</p>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white text-center mb-8 leading-snug">
-              10 minutes. Here&rsquo;s exactly what we do and who we do it for.
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-white text-center mb-8 leading-snug max-w-xl mx-auto">
+              10 minutes. See exactly what we do and who we do it for.
             </h2>
             <div
               id="vidalytics_embed_uXrkFzChcqK_vwVm"
@@ -237,8 +237,7 @@ export default function PrivateClient() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-8">The Gap We Close</p>
             <h2 className="font-display font-black text-[clamp(2rem,5vw,4rem)] leading-[1.05] tracking-tight text-white mb-8">
               You&rsquo;ve built the audience.<br className="hidden md:block" />{' '}
-              The missing piece is the infrastructure<br className="hidden md:block" />{' '}
-              that converts it into income.
+              Now build the system that converts it into income.
             </h2>
             <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
               More content won&rsquo;t close this gap. The right system will.
@@ -449,13 +448,13 @@ export default function PrivateClient() {
         <section className="bg-[#04080B] py-20 md:py-28 grain-overlay">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-              {/* Photo — studio portrait, face always visible */}
+              {/* Photo */}
               <div className="relative rounded-xl overflow-hidden aspect-[3/4] border border-white/[0.06] order-2 md:order-1">
-                <Image
-                  src="https://mikegwalker.com/assets/hero-banner-dark-1280.webp"
+                <img
+                  src="https://mikegwalker.com/assets/mike-stage-1280.webp"
                   alt="Mike Walker, Founder of BrightLink Consulting"
-                  fill
-                  className="object-cover object-top"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: '50% 12%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#04080B]/90 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
