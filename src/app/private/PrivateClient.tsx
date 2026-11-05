@@ -82,11 +82,11 @@ export default function PrivateClient() {
       <Nav onOpenModal={openModal} />
 
       <main>
-        {/* ── HERO ─────────────────────────────────────────────────── */}
+        {/* ── HERO + VIDEO ─────────────────────────────────────────── */}
         <section className="bg-[#04080B] text-white grain-overlay">
-          {/* Orange accent strip — private sector identifier */}
+          {/* Orange accent strip */}
           <div className="h-1 w-full bg-[#FF5833]" />
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-6 md:pt-28 md:pb-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-8">
               Subject Matter Experts
             </p>
@@ -95,26 +95,13 @@ export default function PrivateClient() {
               <span className="text-[#FF5833]">likes and follows</span> into<br className="hidden md:block" />{' '}
               dollars and cents.
             </h1>
-            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
+            <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
               We build the online courses, platforms, and marketing systems that turn your expertise into revenue. Your business should fund your life — not consume it.
             </p>
-            <button
-              onClick={openModal}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
-            >
-              Let&apos;s Build It
-              <ArrowRight size={18} />
-            </button>
           </div>
-        </section>
 
-        {/* ── INTRO VIDEO ──────────────────────────────────────────── */}
-        <section className="bg-[#04080B] pb-20 md:pb-28">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#FF5833] mb-4 text-center">A Quick Introduction</p>
-            <h2 className="font-display font-bold text-2xl md:text-3xl text-white text-center mb-8 leading-snug max-w-xl mx-auto">
-              10 minutes. See exactly what we do and who we do it for.
-            </h2>
+          {/* Video */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
             <div
               id="vidalytics_embed_uXrkFzChcqK_vwVm"
               style={{ width: '100%', position: 'relative', paddingTop: '56.25%' }}
@@ -134,6 +121,20 @@ export default function PrivateClient() {
 })(window, document, 'Vidalytics', 'vidalytics_embed_uXrkFzChcqK_vwVm', 'https://fast.vidalytics.com/embeds/56hJ9E4N/uXrkFzChcqK_vwVm/');`,
               }}
             />
+          </div>
+
+          {/* CTA below video */}
+          <div className="text-center pb-20 md:pb-28 px-4">
+            <p className="text-white/40 text-sm mb-6 uppercase tracking-widest font-semibold">
+              A Quick Introduction &mdash; 10 minutes
+            </p>
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FF5833] text-white font-semibold rounded-md hover:bg-[#e84d2d] transition-colors text-base min-h-[52px]"
+            >
+              Let&apos;s Build It
+              <ArrowRight size={18} />
+            </button>
           </div>
         </section>
 
